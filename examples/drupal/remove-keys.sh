@@ -4,6 +4,7 @@ KEY="$1"
 SECRET="$2"
 KEYID="${3}1"
 
+echo "trill $KEY"
 # Get our access token from CURLZ
 TOKEN=$(curl -X POST \
    -H "Content-Type:application/json" \
