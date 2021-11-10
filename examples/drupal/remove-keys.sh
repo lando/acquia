@@ -17,7 +17,7 @@ TOKEN=$(curl -X POST \
  'https://accounts.acquia.com/api/auth/oauth/token' | jq -r '.access_token')
 
 # Discover the key we need to remove
-echo "Trying to get the UUID for $KEYID"...
+echo "Trying to get the UUID for $KEYID with token $TOKEN"...
 KEY_UUID=$(curl -X GET \
    -H "Authorization: Bearer $TOKEN" \
  'https://cloud.acquia.com/api/account/ssh-keys' | jq '._embedded.items[]' | KEYID="$KEYID" jq 'select(.label == env.KEYID)' | jq -r '.uuid')
