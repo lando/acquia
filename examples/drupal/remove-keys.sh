@@ -2,21 +2,22 @@
 
 KEY="$1"
 SECRET="$2"
-KEYID="${3:-Landokey}"
+KEYID="${3}1"
 
 # Get our access token from CURLZ
 TOKEN=$(curl -X POST \
    -H "Content-Type:application/json" \
    -d \
 '{
-  "client_id": "$KEY",
-  "client_secret": "$SECRET",
+  "client_id": "'"$KEY"'",
+  "client_secret": "'"$SECRET"'",
   "grant_type": "client_credentials",
   "scope": ""
 }' \
  'https://accounts.acquia.com/api/auth/oauth/token' | jq -r '.access_token')
 
 # Discover the key we need to remove
+echo "Trying to get the UUID for $KEYID with token $TOKEN"...
 KEY_UUID=$(curl -X GET \
    -H "Authorization: Bearer $TOKEN" \
  'https://cloud.acquia.com/api/account/ssh-keys' | jq '._embedded.items[]' | KEYID="$KEYID" jq 'select(.label == env.KEYID)' | jq -r '.uuid')

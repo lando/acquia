@@ -16,13 +16,19 @@ Run the following commands to get up and running with this example.
 # Should poweroff
 lando poweroff
 
-# Should initialize the lando acquia recipe
+# Should initialize the lando acquia test drupal9 site
 rm -rf drupal9 && mkdir -p drupal9 && cd drupal9
-lando init --source cwd --recipe acquia
+lando init --source acquia --acquia-key "$ACQUIA_API_KEY" --acquia-secret "$ACQUIA_API_SECRET" --acquia-app "53fd24cf-803f-4024-afac-c457cfc5c273" --acquia-key-name "$RUN_ID"
+echo -e "\nplugins:\n  \"@lando/acquia/\": ./../../" >> .lando.yml
+git stash
 
 # Should start up our drupal9 site successfully
 cd drupal9
 lando start
+
+# Should pull down database for our drupal9 site
+cd drupal9
+lando pull --code dev --database dev --files none
 ```
 
 Verification commands
@@ -96,7 +102,16 @@ Run the following commands to trash this app like nothing ever happened.
 
 ```bash
 # Should be able to destroy our drupal9 site with success
-# cd drupal9
-# lando destroy -y
-# lando poweroff
+cd drupal9
+lando destroy -y
+lando poweroff
+
+# Should be able to remove our acquia ssh keys
+cp -r remove-keys.sh drupal9/remove-keys.sh
+cd drupal9
+lando ssh -s appserver -u root -c "apt-get update -y"
+lando ssh -s appserver -u root -c "apt-get install jq -y"
+lando ssh -s appserver -c "/app/remove-keys.sh $ACQUIA_API_KEY $ACQUIA_API_SECRET $RUN_ID"
+cd ..
+rm -rf drupal9/remove-keys.sh
 ```
