@@ -106,7 +106,7 @@ module.exports = {
           answers.recipe,
           answers['acquia-key'],
           lando.config.home,
-          lando.cache.get(acquiaKeyCache)
+          lando.cache.get(acquiaKeyCache),
         ),
         validate: (input, answers) => {
           // If we end up here we likely need to ask for the secret as well
