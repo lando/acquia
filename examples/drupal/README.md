@@ -16,13 +16,17 @@ Run the following commands to get up and running with this example.
 # Should poweroff
 lando poweroff
 
-# Should initialize the lando acquia recipe
+# Should initialize the lando acquia test drupal9 site
 rm -rf drupal9 && mkdir -p drupal9 && cd drupal9
-lando init --source cwd --recipe acquia
+lando init --source acquia --acquia-key "$ACQUIA_API_KEY" --acquia-secret "$ACQUIA_API_SECRET" --acquia-app "53fd24cf-803f-4024-afac-c457cfc5c273"
 
 # Should start up our drupal9 site successfully
 cd drupal9
 lando start
+
+# Should pull down database and files for our drupal9 site
+cd drupal9
+lando pull --code dev --database dev --files dev
 ```
 
 Verification commands
