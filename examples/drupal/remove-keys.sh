@@ -4,15 +4,13 @@ KEY="$1"
 SECRET="$2"
 KEYID="${3}1"
 
-echo "TRILL $ACQUIA_API_KEY $ACQUIA_API_SECRET $RUN_ID"
-
 # Get our access token from CURLZ
 TOKEN=$(curl -X POST \
    -H "Content-Type:application/json" \
    -d \
 '{
-  "client_id": "$KEY",
-  "client_secret": "$SECRET",
+  "client_id": "'"$KEY"'",
+  "client_secret": "'"$SECRET"'",
   "grant_type": "client_credentials",
   "scope": ""
 }' \
