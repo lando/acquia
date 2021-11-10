@@ -10,6 +10,7 @@ jobs:
       TERM: xterm
       ACQUIA_API_KEY: ${{ secrets.ACQUIA_API_KEY }}
       ACQUIA_API_SECRET: ${{ secrets.ACQUIA_API_SECRET }}
+      RUN_ID: ${{ github.sha }}-${{ github.run_id }}-${{ github.run_number }}
     strategy:
       matrix:
         leia-tests:
