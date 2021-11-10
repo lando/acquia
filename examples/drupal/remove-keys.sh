@@ -4,7 +4,19 @@ KEY="$1"
 SECRET="$2"
 KEYID="${3}1"
 
-echo "trill $KEY"
+TRILL=$(curl -X POST \
+   -H "Content-Type:application/json" \
+   -d \
+'{
+  "client_id": "$KEY",
+  "client_secret": "$SECRET",
+  "grant_type": "client_credentials",
+  "scope": ""
+}' \
+ 'https://accounts.acquia.com/api/auth/oauth/token')
+
+echo "TRILL $TRILL"
+
 # Get our access token from CURLZ
 TOKEN=$(curl -X POST \
    -H "Content-Type:application/json" \
