@@ -1,0 +1,14 @@
+# Disable the "core" acquia plugins
+disablePlugins:
+  - lando-acquia
+
+# Make sure we are dogfooding this plugin for testing purposes
+plugins:
+  "@lando/acquia": /home/runner/work/acquia/acquia
+
+# Disable metrics reporting
+stats:
+  - report: false
+    url: https://metrics.lando.dev
+
+
