@@ -10,11 +10,7 @@ With `lando pull` you can import data and download files from your remote Acquia
 
 Note that only database relationships are currently syncable.
 
-## Importing Your Database and Files
-
-Once you've started up your Acquia site you will need to pull in your database and files before you can really start to dev that sweet sweet dev. There are two easy ways to do this as shown below:
-
-### 1. Using `lando pull`
+## Pulling
 
 Lando provides a command for Acquia sites called `lando pull` to get your database and files.
 
@@ -49,7 +45,7 @@ lando pull --key "$ACQUIA_KEY" --secret "$ACQUIA_SECRET"
 
 Please consult the manual import documentation below if this command produces an error.
 
-## Pushing Your Changes
+## Pushing
 
 While a best practices workflow suggests you put all your changes in code and push those changes with `git`, Lando provides a utility command for `acquia` recipes called `lando push` that pushes up any code, database or files changes you have made locally.
 
@@ -57,14 +53,14 @@ While a best practices workflow suggests you put all your changes in code and pu
 
 Note again that if Lando cannot find an [Acquia API key](https://docs.acquia.com/cloud-platform/develop/api/auth/) associated with your local site, it will prompt you to enter one. You can also switch to a different key by using the  `--key` and `--secret` options.
 
-### Usage
+#### Usage
 
 ```bash
 # Push the latest code, database and files
 lando push
 ```
 
-### Options
+#### Options
 
 ```bash
 --verbose, -v   Runs with extra verbosity

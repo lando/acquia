@@ -9,8 +9,6 @@ mailchimp:
   button: Sign me up!
 ---
 
-# Connecting to your database
-
 Just like on Acquia, Lando will automatically configure your application to connect to its local database and cache. Note that in some cases, such as when the user has purposefully removed the sourcing of the `${project}-settings.inc` file, this will not work.
 
 If you find yourself in this situation and need to manually connect to the database or cache credentials for each are below:

@@ -37,12 +37,12 @@ module.exports = {
         collapsible: true,
         children: [
           {
-            text: 'Manually importing databases and files',
-            link: '/manually-importing-databases.md',
-          },
-          {
             text: 'Connecting to your database',
             link: '/connecting-database.md',
+          },
+          {
+            text: 'Manually importing databases and files',
+            link: '/manually-importing-databases.md',
           },
         ],
       },

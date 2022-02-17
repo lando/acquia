@@ -9,8 +9,6 @@ mailchimp:
   button: Sign me up!
 ---
 
-# Manually Importing Your DB and Files
-
 In the event that `lando pull` is not working as expected you have a few other things you can try out to grab your database and files.
 
 ## Database
