@@ -3,7 +3,7 @@ title: Acquia Lando Plugin
 description: The best local development environment option for Acquia, the fastest way to build modern web apps.
 ---
 
-# Overview
+# Acquia
 
 [Acquia](https://www.acquia.com/) is the Enterprise Digital Experience Platform designed to help you build Drupal experiences that engage customers, enhance conversions and help your business stand out.
 
