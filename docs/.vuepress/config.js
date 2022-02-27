@@ -26,30 +26,30 @@ module.exports = {
     sidebar: [
       {
         text: 'Overview',
-        link: '/index.md',
+        link: '/index.html',
       },
-      '/getting-started.md',
-      '/config.md',
-      '/tooling.md',
-      '/sync.md',
+      '/getting-started.html',
+      '/config.html',
+      '/tooling.html',
+      '/sync.html',
       {
         text: 'Guides',
         collapsible: true,
         children: [
           {
             text: 'Connecting to your database',
-            link: '/connecting-database.md',
+            link: '/connecting-database.html',
           },
           {
             text: 'Manually importing databases and files',
-            link: '/manually-importing-databases.md',
+            link: '/manually-importing-databases.html',
           },
         ],
       },
-      '/support.md',
+      '/support.html',
       {text: 'Examples', link: 'https://github.com/lando/acquia/tree/main/examples'},
       {text: 'Release Notes', link: 'https://github.com/lando/acquia/releases'},
-      '/development.md',
+      '/development.html',
     ],
   },
 };
