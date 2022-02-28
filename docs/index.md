@@ -1,6 +1,7 @@
 ---
 title: Acquia Lando Plugin
 description: The best local development environment option for Acquia, the fastest way to build modern web apps.
+next: ./config.html
 ---
 
 # Acquia
