@@ -28,7 +28,7 @@ If you do not already have a [Landofile](https://docs.lando.dev/config/lando.htm
 
 Note that if the above config options are not enough, all Lando recipes can be further [extended and overridden](https://docs.lando.dev/config/recipes.html#extending-and-overriding-recipes).
 
-### Choosing a composer version
+## Choosing a composer version
 
 By default the `acquia` recipe will default to the latest stable release of `composer` 2. If your application depends on a different version of composer you can set `composer_version` to any version that is available in our [php service](https://docs.lando.dev/config/php.html#configuration).
 
@@ -38,7 +38,7 @@ config:
   composer_version: '1.10.1'
 ```
 
-### Disabling `acli pull:run-scripts`
+## Disabling `acli pull:run-scripts`
 
 By default `acli pull:run-scripts` will automatically run on your first `lando start` and on subsequent `lando rebuilds` to ensure your site has the needed code dependencies to run correctly. However, there are some _rare_ situations where this may not be a suitable default. In such cases you can disable this behavior:
 
@@ -49,7 +49,7 @@ config:
     run_scripts: false
 ```
 
-### Customizing the stack
+## Customizing the stack
 
 By default, Lando will spin up an approximation of the Acquia stack:
 
@@ -80,7 +80,7 @@ config:
 
 Note that if your application code depends on one of these services and you disable them, you should expect an error. Also note that Lando does not track what services you are using on your Acquia site e.g. these settings are "decoupled".
 
-### Using acli
+## Using acli
 
 While in `alpha` Lando ships the `acli` built from the latest commit to `master` on GitHub. You can change this behavior in a few ways:
 
@@ -100,7 +100,7 @@ config:
   acli_version: "1.8.1"
 ```
 
-### Using xdebug
+## Using xdebug
 
 This is just a passthrough option to the [xdebug setting](https://docs.lando.dev/config/php.html#toggling-xdebug) that exists on all our [php services](https://docs.lando.dev/config/php.html). The `tl;dr` is `xdebug: true` enables and configures the php xdebug extension and `xdebug: false` disables it.
 
