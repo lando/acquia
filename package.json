@@ -43,8 +43,7 @@
   "dependencies": {
     "axios": "^0.24.0",
     "js-yaml": "^3.4.6",
-    "lodash": "^4.17.21",
-    "tar": "^6.1.11"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.0",
