@@ -2,7 +2,7 @@
   "name": "@lando/acquia",
   "description": "A Lando plugin that provides a tight integration with Acquia.",
   "version": "0.5.2",
-  "author": "John Ouellet @labboy0276",
+  "author": "Mike Pirog @pirog",
   "license": "GPL-3.0",
   "repository": "lando/acquia",
   "bugs": "https://github.com/lando/acquia/issues/new/choose",
@@ -10,11 +10,14 @@
   "keywords": [
     "lando",
     "lando-plugin",
-    "acquia"
+    "lando-recipe",
+    "acquia",
+    "acquia-cloud"
   ],
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
   },
+  "bundledDependencies": true,
   "main": "index.js",
   "nyc": {
     "include": [
