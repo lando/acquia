@@ -84,6 +84,10 @@ module.exports = {
         AH_SITE_UUID: appUuid,
         AH_SITE_GROUP: group,
         AH_SITE_ENVIRONMENT: 'LANDO',
+        ACLI_DB_HOST: 'database',
+        ACLI_DB_USER: 'acquia',
+        ACLI_DB_PASSWORD: 'acquia',
+        ACLI_DB_NAME: 'acquia',
       };
 
       // Mount the acquia settings.php file for auto service "discovery"
