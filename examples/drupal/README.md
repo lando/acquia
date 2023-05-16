@@ -75,6 +75,11 @@ cd drupal9
 lando ssh -c "env" | grep AH_SITE_ENVIRONMENT | grep LANDO
 lando ssh -c "env" | grep AH_SITE_GROUP | grep engagedemo
 lando ssh -c "env" | grep AH_SITE_UUID | grep 53fd24cf-803f-4024-afac-c457cfc5c273
+lando ssh -c "env" | grep ACLI_DB_HOST | grep database
+lando ssh -c "env" | grep ACLI_DB_USER | grep acquia 
+lando ssh -c "env" | grep ACLI_DB_PASSWORD | grep acquia
+lando ssh -c "env" | grep ACLI_DB_NAME | grep acquia
+
 
 # Should be running from the docroot directory
 cd drupal9
