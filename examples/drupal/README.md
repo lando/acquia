@@ -19,7 +19,7 @@ lando poweroff
 # Should initialize the lando acquia test drupal9 site
 rm -rf drupal9 && mkdir -p drupal9 && cd drupal9
 lando init --source acquia --acquia-key "$ACQUIA_API_KEY" --acquia-secret "$ACQUIA_API_SECRET" --acquia-app "53fd24cf-803f-4024-afac-c457cfc5c273" --acquia-key-name "$RUN_ID"
-echo -e "\nplugins:\n  \"@lando/acquia/\": ./../../" >> .lando.yml
+echo -e "\nplugins:\n  \"@lando/acquia/\": ./../../../" >> .lando.yml
 git stash
 
 # Should start up our drupal9 site successfully
