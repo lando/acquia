@@ -1,6 +1,11 @@
+## v0.8.0 - [May 17, 2023](https://github.com/lando/acquia/releases/tag/v0.8.0)
+
+* Added ACLI_DB env vars [#56](https://github.com/lando/acquia/pull/56)
+* Updated to PHP 8.1 in the engagedemo app.
+
 ## v0.7.0 - [December 12, 2022](https://github.com/lando/acquia/releases/tag/v0.7.0)
-  * Added bundle-dependencies to release process.
-  * Fixed bug in plugin dogfooding test.
+* Added bundle-dependencies to release process.
+* Fixed bug in plugin dogfooding test.
 
 ## v0.6.0 - [September 7, 2022](https://github.com/lando/acquia/releases/tag/v0.6.0)
 

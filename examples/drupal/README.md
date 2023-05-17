@@ -19,7 +19,7 @@ lando poweroff
 # Should initialize the lando acquia test drupal9 site
 rm -rf drupal9 && mkdir -p drupal9 && cd drupal9
 lando init --source acquia --acquia-key "$ACQUIA_API_KEY" --acquia-secret "$ACQUIA_API_SECRET" --acquia-app "53fd24cf-803f-4024-afac-c457cfc5c273" --acquia-key-name "$RUN_ID"
-echo -e "\nplugins:\n  \"@lando/acquia/\": ./../../" >> .lando.yml
+echo -e "\nplugins:\n  \"@lando/acquia/\": ./../../../" >> .lando.yml
 git stash
 
 # Should start up our drupal9 site successfully
@@ -64,7 +64,7 @@ lando ssh -c "/usr/local/bin/composer --version" | grep Composer | grep "2.0.11"
 
 # Should use php version 7.4 by default
 cd drupal9
-lando php -v | grep "PHP 7.4"
+lando php -v | grep "PHP 8.1"
 
 # Should be able to bootstrap drupal9
 cd drupal9
@@ -75,6 +75,11 @@ cd drupal9
 lando ssh -c "env" | grep AH_SITE_ENVIRONMENT | grep LANDO
 lando ssh -c "env" | grep AH_SITE_GROUP | grep engagedemo
 lando ssh -c "env" | grep AH_SITE_UUID | grep 53fd24cf-803f-4024-afac-c457cfc5c273
+lando ssh -c "env" | grep ACLI_DB_HOST | grep database
+lando ssh -c "env" | grep ACLI_DB_USER | grep acquia 
+lando ssh -c "env" | grep ACLI_DB_PASSWORD | grep acquia
+lando ssh -c "env" | grep ACLI_DB_NAME | grep acquia
+
 
 # Should be running from the docroot directory
 cd drupal9
