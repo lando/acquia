@@ -1,4 +1,4 @@
-## v0.8.0 - [May 16, 2023](https://github.com/lando/acquia/releases/tag/v0.8.0)
+## v0.8.0 - [May 17, 2023](https://github.com/lando/acquia/releases/tag/v0.8.0)
 
 * Added ACLI_DB env vars [#56](https://github.com/lando/acquia/pull/56)
 * Updated to PHP 8.1 in the engagedemo app.
