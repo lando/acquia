@@ -39,9 +39,7 @@ Run the following commands to validate things are rolling as they should.
 ```bash
 # Should have drush
 cd drupal9
-ls && pwd
-lando config
-lando -vvv drush version
+lando drush version
 
 # Should have acli
 cd drupal9
