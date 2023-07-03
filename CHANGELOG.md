@@ -1,3 +1,8 @@
+## v0.9.0 - [July 3, 2023](https://github.com/lando/acquia/releases/tag/v0.9.0)
+  * Removed bundle-dependencies and version-bump-prompt from plugin.
+  * Updated package to use prepare-release-action.
+  * Updated documentation to reflect new release process.
+
 ## v0.8.0 - [May 17, 2023](https://github.com/lando/acquia/releases/tag/v0.8.0)
 
 * Added ACLI_DB env vars [#56](https://github.com/lando/acquia/pull/56)
