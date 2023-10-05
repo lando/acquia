@@ -235,6 +235,10 @@ module.exports = {
         user: 'root',
       },
       {
+        name: 'wait-for-user',
+        cmd: '/helpers/wait-for-user.sh'
+      },
+      {
         name: 'clone-repo',
         cmd: options =>
           `/helpers/acquia-clone.sh ${options['acquia-git-url']} "--branch ${options['acquia-git-branch']}" ` +
