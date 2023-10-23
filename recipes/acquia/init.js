@@ -236,7 +236,7 @@ module.exports = {
       },
       {
         name: 'wait-for-user',
-        cmd: '/helpers/wait-for-user.sh',
+        cmd: '/helpers/acquia-wait-for-user.sh',
       },
       {
         name: 'clone-repo',
