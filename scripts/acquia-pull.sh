@@ -76,7 +76,7 @@ while (( "$#" )); do
         shift
       ;;
     --on-demand)
-        ON_DEMAND=--on-demand
+        ON_DEMAND=" --on-demand"
         shift
       ;;
     --)
