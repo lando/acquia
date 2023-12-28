@@ -33,19 +33,20 @@ jobs:
           node-version: ${{ matrix.node-version }}
           registry-url: https://registry.npmjs.org
           cache: npm
-      - name: Install NPM dependencies
-        run: npm clean-install --prefer-offline --frozen-lockfile
+      - name: Bundle Deps
+        uses: lando/prepare-release-action@v2
+        with:
+          lando-plugin: true
+          version: dev
+          sync: false
       - name: Setup lando ${{ matrix.lando-version }}
         uses: lando/setup-lando@v2
         with:
           lando-version: ${{ matrix.lando-version }}
           config: |
-            plugins.@lando/acquia=/home/runner/work/acquia/acquia
+            setup.skipCommonPlugins=true
+            setup.plugins.@lando/acquia=/home/runner/work/acquia/acquia
           telemetry: false
-      - name: Verify Lando works and we are dogfooding this plugin for tests
-        run: |
-          lando version
-          lando config --path plugins | grep acquia | grep /home/runner/work/acquia/acquia || (echo "::error:: Not dogfooding this plugin correctly!" && exit 1)
       - name: Run Leia Tests
         uses: lando/run-leia-action@v2
         with:
