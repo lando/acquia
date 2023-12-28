@@ -1,13 +1,13 @@
 'use strict';
 
 const _ = require('lodash');
-const {getAcquiaPull} = require('./../../lib/pull');
-const {getAcquiaPush} = require('./../../lib/push');
-const utils = require('./../../lib/utils');
+const {getAcquiaPull} = require('./../lib/pull');
+const {getAcquiaPush} = require('./../lib/push');
+const utils = require('./../lib/utils');
 
 module.exports = {
   name: 'acquia',
-  parent: '_drupaly',
+  parent: 'acquia-base',
   config: {
     cache: true,
     composer_version: '2',
@@ -96,12 +96,12 @@ module.exports = {
 
       // Add in memcache
       if (options.cache) {
-        options.services.cache = {type: 'memcached:1', portforward: true, mem: 64};
+        options.services.cache = {type: 'acquia-memcached:1', portforward: true, mem: 64};
       }
 
       // Add in mailhog
       if (options.inbox) {
-        options.services.inbox = {type: 'mailhog:v1.0.0', portforward: true, hogfrom: ['appserver']};
+        options.services.inbox = {type: 'acquia-mailhog:v1.0.0', portforward: true, hogfrom: ['appserver']};
         options.proxy.inbox = [`inbox.${options.app}.${options._app._config.domain}`];
       }
 

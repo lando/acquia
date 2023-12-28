@@ -2,9 +2,9 @@
 
 // Modules
 const _ = require('lodash');
-const API = require('../../lib/api');
+const API = require('../lib/api');
 const path = require('path');
-const utils = require('../../lib/utils');
+const utils = require('../lib/utils');
 
 // Acquia
 const acquiaKeyCache = 'acquia.keys';
