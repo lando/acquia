@@ -183,6 +183,10 @@ module.exports = {
     },
     build: (options, lando) => ([
       {
+        name: 'wait-for-user',
+        cmd: '/helpers/acquia-wait-for-user.sh',
+      },
+      {
         name: 'get-user-account',
         func: (options, lando) => {
           return api.auth(options['acquia-key'], options['acquia-secret'], true, true)
@@ -233,10 +237,6 @@ module.exports = {
         name: 'reload-keys',
         cmd: '/helpers/load-keys.sh --silent',
         user: 'root',
-      },
-      {
-        name: 'wait-for-user',
-        cmd: '/helpers/acquia-wait-for-user.sh',
       },
       {
         name: 'clone-repo',
