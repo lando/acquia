@@ -12,16 +12,15 @@ jobs:
       ACQUIA_API_SECRET: ${{ secrets.ACQUIA_API_SECRET }}
       RUN_ID: ${{ github.sha }}${{ github.run_id }}${{ github.run_number }}
     strategy:
-      fail-fast: false
       matrix:
-        leia-test:
-          - examples/drupal
+        leia-tests:
+          - drupal
         lando-version:
-          - 3-dev
+          - 3-dev-slim
         os:
           - ubuntu-22.04
         node-version:
-          - '16'
+          - '18'
 
     steps:
       # Install deps and cache
@@ -31,25 +30,27 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          registry-url: https://registry.npmjs.org
-          cache: yarn
-      - name: Install Yarn dependencies
-        run: yarn install --prefer-offline --frozen-lockfile
+          cache: npm
+      - name: Install NPM dependencies
+        run: npm clean-install --prefer-offline --frozen-lockfile
+      - name: Bundle Deps
+        uses: lando/prepare-release-action@v2
+        with:
+          lando-plugin: true
+          version: dev
+          sync: false
       - name: Setup lando ${{ matrix.lando-version }}
         uses: lando/setup-lando@v2
         with:
           lando-version: ${{ matrix.lando-version }}
           config: |
-            plugins.@lando/acquia=/home/runner/work/acquia/acquia
+            setup.skipCommonPlugins=true
+            setup.plugins.@lando/acquia=/home/runner/work/acquia/acquia
           telemetry: false
-      - name: Verify Lando works and we are dogfooding this plugin for tests
-        run: |
-          lando version
-          lando config --path plugins | grep acquia | grep /home/runner/work/acquia/acquia || (echo "::error:: Not dogfooding this plugin correctly!" && exit 1)
       - name: Run Leia Tests
         uses: lando/run-leia-action@v2
         with:
-          leia-test: "./${{ matrix.leia-test }}/README.md"
+          leia-test: "./examples/${{ matrix.leia-tests }}/README.md"
           cleanup-header: "Destroy tests"
           shell: bash
           stdin: true

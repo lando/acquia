@@ -2,9 +2,9 @@
 
 // Modules
 const _ = require('lodash');
-const API = require('../../lib/api');
+const API = require('../lib/api');
 const path = require('path');
-const utils = require('../../lib/utils');
+const utils = require('../lib/utils');
 
 // Acquia
 const acquiaKeyCache = 'acquia.keys';
@@ -183,6 +183,10 @@ module.exports = {
     },
     build: (options, lando) => ([
       {
+        name: 'wait-for-user',
+        cmd: '/helpers/acquia-wait-for-user.sh',
+      },
+      {
         name: 'get-user-account',
         func: (options, lando) => {
           return api.auth(options['acquia-key'], options['acquia-secret'], true, true)
@@ -233,10 +237,6 @@ module.exports = {
         name: 'reload-keys',
         cmd: '/helpers/load-keys.sh --silent',
         user: 'root',
-      },
-      {
-        name: 'wait-for-user',
-        cmd: '/helpers/acquia-wait-for-user.sh',
       },
       {
         name: 'clone-repo',
