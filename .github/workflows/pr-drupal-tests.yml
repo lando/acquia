@@ -12,10 +12,9 @@ jobs:
       ACQUIA_API_SECRET: ${{ secrets.ACQUIA_API_SECRET }}
       RUN_ID: ${{ github.sha }}${{ github.run_id }}${{ github.run_number }}
     strategy:
-      fail-fast: false
       matrix:
-        leia-test:
-          - examples/drupal
+        leia-tests:
+          - drupal
         lando-version:
           - 3-dev-slim
         os:
@@ -31,8 +30,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          registry-url: https://registry.npmjs.org
           cache: npm
+      - name: Install NPM dependencies
+        run: npm clean-install --prefer-offline --frozen-lockfile
       - name: Bundle Deps
         uses: lando/prepare-release-action@v2
         with:
@@ -50,7 +50,7 @@ jobs:
       - name: Run Leia Tests
         uses: lando/run-leia-action@v2
         with:
-          leia-test: "./${{ matrix.leia-test }}/README.md"
+          leia-test: "./examples/${{ matrix.leia-tests }}/README.md"
           cleanup-header: "Destroy tests"
           shell: bash
           stdin: true
