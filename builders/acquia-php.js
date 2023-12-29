@@ -24,8 +24,8 @@ module.exports = {
   parent: '_appserver',
   builder: (parent, config) => class AcquiaPhp extends LandoPhp.builder(parent, LandoPhp.config) {
     constructor(id, options = {}, factory) {
+      options = _.merge({}, config, options);
       loadScripts(options);
-      options.nginxServiceType = 'acquia-nginx';
       super(id, options, factory);
     };
   },

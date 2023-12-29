@@ -195,7 +195,7 @@ module.exports = {
   config: {
     build: [],
     composer: {},
-    confSrc: __dirname,
+    confSrc: path.resolve(__dirname, '..', 'config'),
     config: {},
     database: 'mysql',
     defaultFiles: {

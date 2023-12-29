@@ -1,6 +1,7 @@
 'use strict';
 
 const _ = require('lodash');
+const path = require('path');
 const {getAcquiaPull} = require('./../lib/pull');
 const {getAcquiaPush} = require('./../lib/push');
 const utils = require('./../lib/utils');
@@ -11,7 +12,7 @@ module.exports = {
   config: {
     cache: true,
     composer_version: '2',
-    confSrc: __dirname,
+    confSrc: path.resolve(__dirname, '..', 'config'),
     defaultFiles: {},
     drush: '8.4.8',
     inbox: true,
