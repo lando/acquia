@@ -32,7 +32,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: npm
       - name: Install NPM dependencies
-        run: npm clean-install --production --production --prefer-offline --frozen-lockfile
+        run: npm clean-install --production --production --production --prefer-offline --frozen-lockfile
       - name: Bundle Deps
         uses: lando/prepare-release-action@v2
         with:
