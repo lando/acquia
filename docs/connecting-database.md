@@ -1,7 +1,6 @@
 ---
 title: Connecting to your database
 description: Learn how to connect to your Acquia database in Lando.
-guide: true
 mailchimp:
   action: https://dev.us12.list-manage.com/subscribe/post?u=59874b4d6910fa65e724a4648&amp;id=613837077f
   title: Want more Acquia guide content?

@@ -3,7 +3,7 @@ title: Tooling
 description: Learn about the various out-of-the-box tooling you get with the Lando Acquia recipe.
 ---
 
-# Tooling
+# CLI Tooling
 
 Each Lando Acquia recipe will also ship with the Acquia toolchain. This means you can use `drush` and `acli` via Lando and avoid mucking up your actual computer trying to manage `php` versions and tooling.
 

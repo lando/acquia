@@ -8,8 +8,8 @@ const {name, version} = require('../../package.json');
 const landoPlugin = name.replace('@lando/', '');
 
 export default defineConfig({
-  title: 'Lando Dotnet Plugin',
-  description: 'The offical Lando plugin for Dotnet.',
+  title: 'Lando Acquia Plugin',
+  description: 'The offical Lando plugin for Acquia.',
   landoDocs: 3,
   landoPlugin,
   version,
@@ -29,28 +29,44 @@ function sidebar() {
       text: 'Introduction',
       collapsed: false,
       items: [
-        {text: 'Overview', link: '/'},
-        {text: 'Installation', link: '/install'},
-        {text: 'Usage', link: '/config'},
+        { text: 'Overview', link: '/' },
+        { text: 'Installation', link: '/install' },
+        { text: 'Usage', link: '/config' },
+      ],
+    },
+    {
+      text: 'Reference',
+      collapsed: true,
+      items: [
+        { text: 'CLI', link: '/tooling' },
+        { text: 'Examples', link: 'https://github.com/lando/acquia/tree/main/examples' },
+      ]
+    },
+    {
+      text: 'Guides',
+      collapsed: true,
+      items: [
+        { text: 'Connecting to your database', link: '/connecting-database' },
+        { text: 'Manually importing databases and files', link: '/manually-importing-databases' },
       ],
     },
     {
       text: 'Contribution',
-      collapsed: false,
+      collapsed: true,
       items: [
-        {text: 'Development', link: '/development'},
-        {text: 'Team', link: '/team'},
+        { text: 'Development', link: '/development' },
+        { text: 'Team', link: '/team' },
       ],
     },
     {
       text: 'Help & Support',
-      collapsed: false,
+      collapsed: true,
       items: [
-        {text: 'GitHub', link: 'https://github.com/lando/acquia/issues/new/choose'},
-        {text: 'Slack', link: 'https://launchpass.com/devwithlando'},
-        {text: 'Contact Us', link: '/support'},
+        { text: 'GitHub', link: 'https://github.com/lando/acquia/issues/new/choose' },
+        { text: 'Slack', link: 'https://launchpass.com/devwithlando' },
+        { text: 'Contact Us', link: '/support' },
       ],
     },
-    {text: 'Examples', link: 'https://github.com/lando/acquia/tree/main/examples'},
+    { text: 'Release Notes', link: 'https://github.com/lando/acquia/releases' },
   ];
 };
