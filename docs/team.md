@@ -1,5 +1,5 @@
 ---
-description: Learn about the team that made the acquia plugin.
+description: Learn about the team that made the Acquia plugin.
 layout: page
 title: Team
 ---
@@ -10,7 +10,7 @@ title: Team
       Team
     </template>
     <template #lead>
-      We are the people who brought acquia to Lando.
+      We are the people who brought Acquia to Lando.
     </template>
   </VPLTeamPageTitle>
   <VPLTeamMembers :members="members" size="small"/>
