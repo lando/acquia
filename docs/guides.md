@@ -11,8 +11,6 @@ import {useCollection} from '@lando/vitepress-theme-default-plus';
 
 const {prev, pages} = useCollection('guide');
 
-console.log(pages);
-
 </script>
 
 <VPLCollectionPage>
