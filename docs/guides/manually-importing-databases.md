@@ -1,13 +1,14 @@
 ---
 title: Manually importing databases and files
 description: Learn how to manually import other databases into your Lando Acquia site.
-guide: true
 mailchimp:
   action: https://dev.us12.list-manage.com/subscribe/post?u=59874b4d6910fa65e724a4648&amp;id=613837077f
   title: Want more Acquia guide content?
   byline: Signup and we will send you a weekly blog digest of similar content to keep you satiated.
   button: Sign me up!
 ---
+
+# Manually Importing Databases and Files
 
 In the event that `lando pull` is not working as expected you have a few other things you can try out to grab your database and files.
 
