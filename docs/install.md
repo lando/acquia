@@ -1,6 +1,6 @@
 ---
 title: Installation
-description: How to install the Lando Dotnet Plugin.
+description: How to install the Lando Acquia Plugin.
 ---
 
 # Installation
