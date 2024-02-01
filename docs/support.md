@@ -1,6 +1,6 @@
 ---
 title: Contact Us
-description: Get help and support for the Lando ACQUIA Plugin
+description: Get help and support for the Lando Acquia Plugin
 ---
 
 # Contact Us
