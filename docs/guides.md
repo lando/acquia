@@ -9,7 +9,9 @@ sidebar: false
 import {VPLCollectionPage, VPLCollectionPageTitle, VPLCollectionItems} from '@lando/vitepress-theme-default-plus';
 import {useCollection} from '@lando/vitepress-theme-default-plus';
 
-const {pages} = useCollection('guide');
+const {prev, pages} = useCollection('guide');
+
+console.log(pages);
 
 </script>
 

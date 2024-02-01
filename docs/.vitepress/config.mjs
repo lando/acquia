@@ -20,7 +20,7 @@ export default defineConfig({
   ],
   themeConfig: {
     sidebar: sidebar(),
-  }
+  },
 });
 
 function sidebar() {
@@ -36,7 +36,6 @@ function sidebar() {
         {text: 'Syncing', link: '/sync'},
       ],
     },
-    {text: 'Guides', link: '/guides', activeMatch: '/guides'},
     {
       text: 'Contribution',
       collapsed: true,
@@ -54,6 +53,7 @@ function sidebar() {
         {text: 'Contact Us', link: '/support'},
       ],
     },
+    {text: 'Guides', link: '/guides', activeMatch: '/guides'},
     {text: 'Examples', link: 'https://github.com/lando/acquia/tree/main/examples'},
   ];
 };
