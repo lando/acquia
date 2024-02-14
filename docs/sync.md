@@ -51,7 +51,7 @@ While a best practices workflow suggests you put all your changes in code and pu
 
 **By default, we set `--database` or `--files` to `none` since this is the suggested best practice**.
 
-Note again that if Lando cannot find an [Acquia API key](https://docs.acquia.com/cloud-platform/develop/api/auth/) associated with your local site, it will prompt you to enter one. You can also switch to a different key by using the  `--key` and `--secret` options.
+Note again that if Lando cannot find an [Acquia API key](https://docs.acquia.com/acquia-cloud-platform/develop-apps/api/auth) associated with your local site, it will prompt you to enter one. You can also switch to a different key by using the  `--key` and `--secret` options.
 
 #### Usage
 
