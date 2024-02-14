@@ -30,7 +30,7 @@ Note that if the above config options are not enough, all Lando recipes can be f
 
 ## Choosing a composer version
 
-By default the `acquia` recipe will default to the latest stable release of `composer` 2. If your application depends on a different version of composer you can set `composer_version` to any version that is available in our [php service](https://docs.lando.dev/php/config.html).
+By default the `acquia` recipe will default to the latest stable release of `composer` 2. If your application depends on a different version of composer you can set `composer_version` to any version that is available in our [php service](https://docs.lando.dev/plugins/php/config.html).
 
 ```yaml
 recipe: acquia
@@ -102,7 +102,7 @@ config:
 
 ## Using xdebug
 
-This is just a passthrough option to the [xdebug setting](https://docs.lando.dev/php/config.html#configuring-xdebug) that exists on all our [php services](https://docs.lando.dev/php). The `tl;dr` is `xdebug: true` enables and configures the php xdebug extension and `xdebug: false` disables it.
+This is just a passthrough option to the [xdebug setting](https://docs.lando.dev/plugins/php/config.html#configuring-xdebug) that exists on all our [php services](https://docs.lando.dev/plugins/php/). The `tl;dr` is `xdebug: true` enables and configures the php xdebug extension and `xdebug: false` disables it.
 
 ```yaml
 recipe: acquia
@@ -110,4 +110,4 @@ config:
   xdebug: true|false
 ```
 
-However, for more information, we recommend you consult the [php service documentation](https://docs.lando.dev/php).
+However, for more information, we recommend you consult the [php service documentation](https://docs.lando.dev/plugins/php/).
