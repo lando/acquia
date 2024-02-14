@@ -14,7 +14,7 @@ Note that only database relationships are currently syncable.
 
 Lando provides a command for Acquia sites called `lando pull` to get your database and files.
 
-Note that if Lando cannot find an [Acquia API key](https://docs.acquia.com/cloud-platform/develop/api/auth/) associated with your local site, it will prompt you to enter one. You can also switch to a different key by using the  `--key` and `--secret` options.
+Note that if Lando cannot find an [Acquia API key](https://docs.acquia.com/acquia-cloud-platform/develop-apps/api/auth) associated with your local site, it will prompt you to enter one. You can also switch to a different key by using the  `--key` and `--secret` options.
 
 #### Usage
 
