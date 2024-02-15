@@ -38,6 +38,7 @@ while (( "$#" )); do
       fi
       ;;
     -c|--code|--code=*)
+      CODEFLAG=true
       if [ "${1##--code=}" != "$1" ]; then
         CODE="${1##--code=}"
         shift
@@ -47,6 +48,7 @@ while (( "$#" )); do
       fi
       ;;
     -d|--database|--database=*)
+      DATABASEFLAG=true
       if [ "${1##--database=}" != "$1" ]; then
         DATABASE="${1##--database=}";
         shift
@@ -56,6 +58,7 @@ while (( "$#" )); do
       fi
       ;;
     -f|--files|--files=*)
+      FILEFLAG=true
       if [ "${1##--files=}" != "$1" ]; then
         FILES="${1##--files=}"
         shift
@@ -70,6 +73,10 @@ while (( "$#" )); do
       ;;
     --no-auth)
         NO_AUTH=true
+        shift
+      ;;
+    --on-demand)
+        ON_DEMAND=" --on-demand"
         shift
       ;;
     --)
@@ -94,11 +101,17 @@ fi
 
 # Get the codez
 if [ "$CODE" != "none" ]; then
+  if [ $CODEFLAG ]; then
+    echo -n "Using the code flag supplied to pull code from $CODE."
+  fi
   acli -n pull:code "$AH_SITE_GROUP.$CODE"
 fi
 
 # Get the database
 if [ "$DATABASE" != "none" ]; then
+  if [ $DATABASEFLAG ]; then
+    echo -n "Using the database flag supplied to pull the database from $DATABASE."
+  fi
   # Destroy existing tables
   # NOTE: We do this so the source DB **EXACTLY MATCHES** the target DB
   TABLES=$(mysql --user=acquia --password=acquia --database=acquia --host=database --port=3306 -e 'SHOW TABLES' | awk '{ print $1}' | grep -v '^Tables' ) || true
@@ -115,7 +128,7 @@ EOF
   done
 
   # Importing database
-  acli -n pull:db "$AH_SITE_GROUP.$DATABASE"
+  acli -n pull:db "$AH_SITE_GROUP.$DATABASE"$ON_DEMAND
 
   # Weak check that we got tables
   PULL_DB_CHECK_TABLE=${LANDO_DB_USER_TABLE:-users}
@@ -129,6 +142,9 @@ fi
 
 # Get the files
 if [ "$FILES" != "none" ]; then
+  if [ $FILESFLAG ]; then
+    echo -n "Using the files flag supplied to pull files from $FILES."
+  fi
   # acli -n pull:files "$FILES" -> non interactive causes a broken pipe error right now
   acli -n pull:files "$AH_SITE_GROUP.$FILES"
 fi
