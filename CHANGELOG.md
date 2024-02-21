@@ -1,13 +1,22 @@
+## v1.1.0 - [February 21, 2024](https://github.com/lando/acquia/releases/tag/v1.1.0)
+
+* Updated memcached plugin to [v1.1.0](https://github.com/lando/memcached/releases/tag/v1.1.0).
+* Added testing of memcached.
+* Updated deps.
+
 ## v1.0.0 - [December 7, 2023](https://github.com/lando/acquia/releases/tag/v1.0.0)
-    * Dialed fully for `lando update`
+  
+* Dialed fully for `lando update`
 
 ## v0.10.0 - [October 5, 2023](https://github.com/lando/acquia/releases/tag/v0.10.0)
+
 * Added a "wait for user" script to ensure user is loaded before cloning repo. [lando/core#71](https://github.com/lando/core/pull/71)
 
 ## v0.9.0 - [July 3, 2023](https://github.com/lando/acquia/releases/tag/v0.9.0)
-  * Removed bundle-dependencies and version-bump-prompt from plugin.
-  * Updated package to use prepare-release-action.
-  * Updated documentation to reflect new release process.
+
+* Removed bundle-dependencies and version-bump-prompt from plugin.
+* Updated package to use prepare-release-action.
+* Updated documentation to reflect new release process.
 
 ## v0.8.0 - [May 17, 2023](https://github.com/lando/acquia/releases/tag/v0.8.0)
 

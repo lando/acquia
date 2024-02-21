@@ -15,6 +15,7 @@ jobs:
       matrix:
         leia-tests:
           - drupal
+          - acquia-custom
         lando-version:
           - 3-dev-slim
         os:
