@@ -1,7 +1,7 @@
 {
   "name": "@lando/acquia",
   "description": "A Lando plugin that provides a tight integration with Acquia.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Mike Pirog @pirog",
   "license": "GPL-3.0",
   "repository": "lando/acquia",
