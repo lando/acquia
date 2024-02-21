@@ -98,6 +98,9 @@ lando php -m | grep xdebug || echo $? | grep 1
 # Should be running apache 2.4
 cd drupal9
 lando ssh -s appserver -c "apachectl -V | grep 2.4."
+
+# Should be running memcached 1.x
+lando ssh -s cache -c "memcached --version | grep 1"
 ```
 
 Destroy tests
