@@ -71,12 +71,12 @@ const getAutoCompleteSites = (answers, lando, input = null) => {
   // how the user is going to provide us with the auth creds
   const {key, secret} = getAuthPair(answers);
   return api.auth(key, secret, true, true)
-    .then(() => api.getApplications())
-    .then(apps => _.map(apps, app => (_.merge({}, {name: app.name, value: app.uuid}, app))))
-    .then(apps => {
-      acquiaApps = apps;
-      return lando.Promise.resolve(acquiaApps);
-    });
+      .then(() => api.getApplications())
+      .then(apps => _.map(apps, app => (_.merge({}, {name: app.name, value: app.uuid}, app))))
+      .then(apps => {
+        acquiaApps = apps;
+        return lando.Promise.resolve(acquiaApps);
+      });
 };
 
 /*
@@ -103,10 +103,10 @@ module.exports = {
         type: 'input',
         message: 'Enter an Acquia API token key, visit https://cloud.acquia.com/a/profile/tokens to create one',
         when: answers => showKeyEntry(
-          answers.recipe,
-          answers['acquia-key'],
-          lando.config.home,
-          lando.cache.get(acquiaKeyCache),
+            answers.recipe,
+            answers['acquia-key'],
+            lando.config.home,
+            lando.cache.get(acquiaKeyCache),
         ),
         validate: (input, answers) => {
           // If we end up here we likely need to ask for the secret as well
@@ -190,13 +190,13 @@ module.exports = {
         name: 'get-user-account',
         func: (options, lando) => {
           return api.auth(options['acquia-key'], options['acquia-secret'], true, true)
-            .then(() => api.getAccount())
-            .then(account => {
-              options['acquia-account'] = account;
-              options['acquia-keyname'] = `${account.mail}.acquia.lando.id_rsa`;
-              options['acquia-keycomment'] = `${account.mail}@lando`;
-            });
-          },
+              .then(() => api.getAccount())
+              .then(account => {
+                options['acquia-account'] = account;
+                options['acquia-keyname'] = `${account.mail}.acquia.lando.id_rsa`;
+                options['acquia-keycomment'] = `${account.mail}@lando`;
+              });
+        },
       },
       {
         name: 'generate-key',
@@ -208,30 +208,30 @@ module.exports = {
           const pubKey = path.join(lando.config.userConfRoot, 'keys', `${options['acquia-keyname']}.pub`);
           const keyName = options['acquia-key-name'];
           return api.auth(options['acquia-key'], options['acquia-secret'], true, true)
-            .then(() => api.postKey(pubKey, keyName));
+              .then(() => api.postKey(pubKey, keyName));
         },
       },
       {
         name: 'get-git-url',
         func: (options, lando) => {
           return api.auth(options['acquia-key'], options['acquia-secret'], true, true)
-            .then(() => api.getEnvironments(options['acquia-app']))
-            .then(envs => {
-              // Match our euuid with acquias
-              const env = utils.getBestEnv(envs);
-              // Get GIT URL
-              options['acquia-git-url'] = env.git;
-              // And some other things
-              const parts = env.vcs.split('/');
-              if (parts[0] === 'tags') {
-                options['acquia-git-branch'] = parts[1];
-              } else {
-                options['acquia-git-branch'] = env.vcs;
-              }
-              options['acquia-php-version'] = env.php;
-              options['acquia-site-group'] = env.group;
-            });
-          },
+              .then(() => api.getEnvironments(options['acquia-app']))
+              .then(envs => {
+                // Match our euuid with acquias
+                const env = utils.getBestEnv(envs);
+                // Get GIT URL
+                options['acquia-git-url'] = env.git;
+                // And some other things
+                const parts = env.vcs.split('/');
+                if (parts[0] === 'tags') {
+                  options['acquia-git-branch'] = parts[1];
+                } else {
+                  options['acquia-git-branch'] = env.vcs;
+                }
+                options['acquia-php-version'] = env.php;
+                options['acquia-site-group'] = env.group;
+              });
+        },
       },
       {
         name: 'reload-keys',
@@ -245,47 +245,47 @@ module.exports = {
           `${options['acquia-keyname']}`,
         remove: 'true',
       },
-  ])}],
+    ])}],
   build: (options, lando) => {
     // Get the info we need to build the relevant config
     return api.auth(options['acquia-key'], options['acquia-secret'], true, true)
-      .then(() => Promise.all([
-        api.getAccount(),
-        api.getEnvironments(options['acquia-app']),
-      ]))
-      .then(data => {
-        const account = data[0];
-        const env = utils.getBestEnv(data[1]);
-        // Write the acli-cli.yml file
-        utils.writeAcliUuid(options['acquia-app']);
-        // Reset the name to something human readable
-        options.name = env.group;
-        // Merge in other lando config
-        const landofileConfig = {
-          config: {
-            acli_version: 'latest',
-            ah_application_uuid: options['acquia-app'],
-            ah_site_group: env.group,
-            php: env.php,
-          },
-        };
+        .then(() => Promise.all([
+          api.getAccount(),
+          api.getEnvironments(options['acquia-app']),
+        ]))
+        .then(data => {
+          const account = data[0];
+          const env = utils.getBestEnv(data[1]);
+          // Write the acli-cli.yml file
+          utils.writeAcliUuid(options['acquia-app']);
+          // Reset the name to something human readable
+          options.name = env.group;
+          // Merge in other lando config
+          const landofileConfig = {
+            config: {
+              acli_version: 'latest',
+              ah_application_uuid: options['acquia-app'],
+              ah_site_group: env.group,
+              php: env.php,
+            },
+          };
 
-        // This is good auth, lets update our cache
-        const cache = {
-          key: options['acquia-key'],
-          label: account.mail,
-          secret: options['acquia-secret'],
-        };
+          // This is good auth, lets update our cache
+          const cache = {
+            key: options['acquia-key'],
+            label: account.mail,
+            secret: options['acquia-secret'],
+          };
 
-        // Update lando's store of acquia creds
-        const keys = lando.cache.get(acquiaKeyCache) || [];
-        lando.cache.set(acquiaKeyCache, utils.sortKeys(keys, [cache]), {persist: true});
-        // Update app metdata
-        const metaData = lando.cache.get(`${options.name}.meta.cache`);
-        lando.cache.set(`${options.name}.meta.cache`, _.merge({}, metaData, cache), {persist: true});
+          // Update lando's store of acquia creds
+          const keys = lando.cache.get(acquiaKeyCache) || [];
+          lando.cache.set(acquiaKeyCache, utils.sortKeys(keys, [cache]), {persist: true});
+          // Update app metdata
+          const metaData = lando.cache.get(`${options.name}.meta.cache`);
+          lando.cache.set(`${options.name}.meta.cache`, _.merge({}, metaData, cache), {persist: true});
 
-        // Finish up
-        return landofileConfig;
-      });
-    },
+          // Finish up
+          return landofileConfig;
+        });
+  },
 };
