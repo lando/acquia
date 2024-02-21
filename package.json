@@ -49,7 +49,7 @@
     "@lando/nginx": "^1.0.0",
     "@lando/php": "^1.0.0",
     "@lando/postgres": "^1.0.0",
-    "axios": "^0.24.0",
+    "axios": "^0.28.0",
     "js-yaml": "^3.4.6",
     "lodash": "^4.17.21",
     "semver": "^7.5.4"
