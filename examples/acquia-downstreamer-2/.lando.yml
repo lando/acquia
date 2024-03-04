@@ -1,0 +1,11 @@
+name: acquia-downstreamer-2
+recipe: acquia
+
+services:
+  database:
+    type: acquia-mysql:8.0
+
+# do not remove this
+plugins:
+  "@lando/acquia": ../..
+  "@lando/mysql": ../../node_modules/@lando/mysql
