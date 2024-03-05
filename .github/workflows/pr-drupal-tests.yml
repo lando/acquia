@@ -14,8 +14,10 @@ jobs:
     strategy:
       matrix:
         leia-tests:
-          - drupal
           - acquia-custom
+          - acquia-downstreamer-1
+          - acquia-downstreamer-2
+          - drupal
         lando-version:
           - 3-dev-slim
         os:
