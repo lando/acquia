@@ -7,7 +7,7 @@ const LandoMemcached = require('@lando/memcached/builders/memcached.js');
 module.exports = {
   name: 'acquia-memcached',
   parent: '_service',
-  builder: (parent, config) => class LaravelMemcached extends LandoMemcached.builder(parent, LandoMemcached.config) {
+  builder: (parent, config) => class AcquiaMemcached extends LandoMemcached.builder(parent, LandoMemcached.config) {
     constructor(id, options = {}) {
       super(id, options, {services: _.set({}, options.name)});
     };
