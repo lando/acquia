@@ -1,4 +1,4 @@
-## v1.0.1 - [March 4, 2024](https://github.com/lando/acquia/releases/tag/v1.0.1)
+## v1.1.1 - [March 7, 2024](https://github.com/lando/acquia/releases/tag/v1.1.1)
 
 ### Fixes
 
