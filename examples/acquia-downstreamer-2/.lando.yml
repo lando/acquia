@@ -1,6 +1,7 @@
 name: acquia-downstreamer-2
 recipe: acquia
-
+config:
+  php: 8.1
 services:
   database:
     type: acquia-mysql:8.0
