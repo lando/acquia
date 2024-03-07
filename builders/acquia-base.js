@@ -85,6 +85,13 @@ const postgresCli = {
 };
 
 /*
+ * Helper to get database type
+ */
+const getDatabaseType = options => {
+  return _.get(options, '_app.config.services.database.type', options.database) ?? 'mysql';
+};
+
+/*
  * Helper to get config defaults
  */
 const getConfigDefaults = options => {
@@ -92,10 +99,10 @@ const getConfigDefaults = options => {
   if (_.startsWith(options.via, 'nginx')) options.defaultFiles.vhosts = 'default.conf.tpl';
 
   // Get the default db conf
-  const dbConfig = _.get(options, 'database', 'mysql');
+  const dbConfig = getDatabaseType(options);
   const database = _.first(dbConfig.split(':'));
   const version = _.last(dbConfig.split(':')).substring(0, 2);
-  if (database === 'mysql' || database === 'mariadb') {
+  if (database.includes('mysql') || database.includes('mariadb')) {
     if (version === '8.') {
       options.defaultFiles.database = 'mysql8.cnf';
     } else {
