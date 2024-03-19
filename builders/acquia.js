@@ -16,7 +16,7 @@ module.exports = {
     defaultFiles: {},
     drush: '8.4.8',
     inbox: true,
-    php: '7.4',
+    php: '8.1',
     services: {appserver: {
       build: [],
       overrides: {volumes: [], environment: {}},
