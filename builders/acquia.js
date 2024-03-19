@@ -14,7 +14,7 @@ module.exports = {
     composer_version: '2',
     confSrc: path.resolve(__dirname, '..', 'config'),
     defaultFiles: {},
-    drush: '8.4.8',
+    drush: '8.4.10',
     inbox: true,
     php: '8.1',
     services: {appserver: {
