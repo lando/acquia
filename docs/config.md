@@ -20,7 +20,7 @@ config:
   cache: true
   composer_version: '2'
   inbox: true
-  php: '7.4'
+  php: '8.1'
   xdebug: false
 ```
 
