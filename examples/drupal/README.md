@@ -62,9 +62,9 @@ lando composer --version | grep Composer | grep 2.
 cd drupal9
 lando ssh -c "/usr/local/bin/composer --version" | grep Composer | grep "2.0.11"
 
-# Should use php version 8.1 by default
+# Should use php version 8.2 by default
 cd drupal9
-lando php -v | grep "PHP 8.1"
+lando php -v | grep "PHP 8.2"
 
 # Should be able to bootstrap drupal9
 cd drupal9
