@@ -1,3 +1,8 @@
+## v1.1.2 - [April 17, 2024](https://github.com/lando/acquia/releases/tag/v1.1.2)
+
+* Update default PHP to 8.2
+* Update Drush 8 to 8.4.10
+
 ## v1.1.1 - [March 7, 2024](https://github.com/lando/acquia/releases/tag/v1.1.1)
 
 ### Fixes
