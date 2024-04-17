@@ -58,7 +58,7 @@ By default, Lando will spin up an approximation of the Acquia stack:
 * Memcache `1.6`
 * PHP `8.2`
 
-Where acquia provider multiple options, we'll choose the current default. PHP is a good example.
+Where acquia provides multiple options, we'll choose the current default. PHP is a good example.
 
 Not current supported but coming soon:
 
