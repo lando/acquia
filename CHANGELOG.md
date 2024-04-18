@@ -1,10 +1,12 @@
-## v1.3.0 - [March 15, 2024](https://github.com/lando/acquia/releases/tag/v1.3.0)
+## v1.3.0 - [April 18, 2024](https://github.com/lando/acquia/releases/tag/v1.3.0)
 
-* Update mariadb plugin to [v1.3.0](https://github.com/lando/mariadb/releases/tag/v1.3.0). See [#51](https://github.com/lando/mariadb/issues/51).
+* Updated mariadb plugin to [v1.3.0](https://github.com/lando/mariadb/releases/tag/v1.3.0). See [#51](https://github.com/lando/mariadb/issues/51).
+* Updated default PHP to 8.2
+* Updated Drush 8 to 8.4.10
 
 ## v1.2.0 - [March 15, 2024](https://github.com/lando/acquia/releases/tag/v1.2.0)
 
-* Update mariadb plugin to [v1.2.0](https://github.com/lando/mariadb/releases/tag/v1.2.0).
+* Updated mariadb plugin to [v1.2.0](https://github.com/lando/mariadb/releases/tag/v1.2.0).
 
 ## v1.1.1 - [March 7, 2024](https://github.com/lando/acquia/releases/tag/v1.1.1)
 
