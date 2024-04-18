@@ -1,3 +1,11 @@
+## v1.3.0 - [March 15, 2024](https://github.com/lando/acquia/releases/tag/v1.3.0)
+
+* Update mariadb plugin to [v1.3.0](https://github.com/lando/mariadb/releases/tag/v1.3.0). See [#51](https://github.com/lando/mariadb/issues/51).
+
+## v1.2.0 - [March 15, 2024](https://github.com/lando/acquia/releases/tag/v1.2.0)
+
+* Update mariadb plugin to [v1.2.0](https://github.com/lando/mariadb/releases/tag/v1.2.0).
+
 ## v1.1.1 - [March 7, 2024](https://github.com/lando/acquia/releases/tag/v1.1.1)
 
 ### Fixes
@@ -11,7 +19,7 @@
 * Updated deps.
 
 ## v1.0.0 - [December 7, 2023](https://github.com/lando/acquia/releases/tag/v1.0.0)
-  
+
 * Dialed fully for `lando update`
 
 ## v0.10.0 - [October 5, 2023](https://github.com/lando/acquia/releases/tag/v0.10.0)
