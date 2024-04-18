@@ -14,9 +14,9 @@ module.exports = {
     composer_version: '2',
     confSrc: path.resolve(__dirname, '..', 'config'),
     defaultFiles: {},
-    drush: '8.4.8',
+    drush: '8.4.10',
     inbox: true,
-    php: '7.4',
+    php: '8.2',
     services: {appserver: {
       build: [],
       overrides: {volumes: [], environment: {}},

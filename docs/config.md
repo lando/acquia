@@ -20,7 +20,7 @@ config:
   cache: true
   composer_version: '2'
   inbox: true
-  php: '7.4'
+  php: '8.2'
   xdebug: false
 ```
 
@@ -56,7 +56,9 @@ By default, Lando will spin up an approximation of the Acquia stack:
 * Apache webserver `2.4`
 * MySQL database server `5.7`
 * Memcache `1.6`
-* PHP `7.3`, `7.4`
+* PHP `8.2`
+
+Where acquia provides multiple options, we'll choose the current default. PHP is a good example.
 
 Not current supported but coming soon:
 
