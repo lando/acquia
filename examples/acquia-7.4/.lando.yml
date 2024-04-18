@@ -2,6 +2,7 @@ name: acquia-80
 recipe: acquia
 config:
   php: 7.4
+  acli_version: 1.30.0
 
 # do not remove this
 plugins:
