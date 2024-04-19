@@ -1,0 +1,8 @@
+name: acquia-default
+recipe: acquia
+config:
+  xdebug: true
+
+# do not remove this
+plugins:
+  "@lando/acquia": ../..

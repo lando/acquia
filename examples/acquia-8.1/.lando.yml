@@ -1,0 +1,8 @@
+name: acquia-81
+recipe: acquia
+config:
+  php: 8.1
+
+# do not remove this
+plugins:
+  "@lando/acquia": ../..

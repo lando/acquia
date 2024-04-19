@@ -1,7 +1,15 @@
 ## v1.3.0 - [April 18, 2024](https://github.com/lando/acquia/releases/tag/v1.3.0)
 
+**NOTICE:** If you use the default PHP version, it is now being updated to PHP 8.2. You may need to specify your PHP version in `.lando.yml`, for example, to set it to PHP 8.0:
+
+```
+recipe: acquia
+config:
+  php: '8.0'
+```
+
 * Updated mariadb plugin to [v1.3.0](https://github.com/lando/mariadb/releases/tag/v1.3.0). See [#51](https://github.com/lando/mariadb/issues/51).
-* Updated default PHP to 8.2
+* Changed default PHP to 8.2 and added testing for PHP versions. [#87](https://github.com/lando/acquia/issues/87)
 * Updated Drush 8 to 8.4.10
 
 ## v1.2.0 - [March 15, 2024](https://github.com/lando/acquia/releases/tag/v1.2.0)
