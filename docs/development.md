@@ -89,7 +89,7 @@ npm run test:unit
 
 ### Leia Tests
 
-We do end to end testing with our made-just-for-Lando testing framework [Leia](https://github.com/lando/leia). Leia allows us to define tests as a series of commented shell commands in human readable markdown files. Here is a simple example:
+We do end to end testing with our made-just-for-Lando testing framework [Leia](https://github.com/lando/leia). Leia allows us to define tests as a series of commented shell commands in human-readable markdown files. Here is a simple example:
 
 ```md
 Start up tests
@@ -101,8 +101,8 @@ lando start
 Verification commands
 ---------------------
 
-# Should be able to connect to all mariadb relationships
-lando mariadb main -e "show tables;"
+# Should be able to connect to all mysql relationships
+lando mysql acquia -e "show tables;"
 
 Destroy tests
 -------------
@@ -122,7 +122,7 @@ Before running all or some of the tests you will need to generate them.
 npm run test:leia
 
 # Run the tests for a single example
-npx leia examples/mariadb-10.2/README.md -c 'Destroy tests'
+npx leia examples/acquia-default/README.md -c 'Destroy tests'
 ```
 
 If you've created new testable examples then you will also need to let GitHub Actions know so they can run on pull requests.
