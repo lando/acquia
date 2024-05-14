@@ -1,4 +1,4 @@
-## v1.3.1 - [](https://github.com/lando/acquia/releases/tag/v1.3.1)
+## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
 * Remove option of using MariaDB - It doesn't work and Acquia doesn't support it.
 
