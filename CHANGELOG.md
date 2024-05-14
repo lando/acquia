@@ -1,3 +1,7 @@
+## v1.3.1 - [](https://github.com/lando/acquia/releases/tag/v1.3.1)
+
+* Remove option of using MariaDB - It doesn't work and Acquia doesn't support it.
+
 ## v1.3.0 - [April 19, 2024](https://github.com/lando/acquia/releases/tag/v1.3.0)
 
 **NOTICE:** If you use the default PHP version, it is now being updated to PHP 8.2. You may need to specify your PHP version in `.lando.yml`, for example, to set it to PHP 8.0:
