@@ -102,7 +102,7 @@ const getConfigDefaults = options => {
   const dbConfig = getDatabaseType(options);
   const database = _.first(dbConfig.split(':'));
   const version = _.last(dbConfig.split(':')).substring(0, 2);
-  if (database.includes('mysql') || database.includes('mariadb')) {
+  if (database.includes('mysql')) {
     if (version === '8.') {
       options.defaultFiles.database = 'mysql8.cnf';
     } else {
@@ -158,7 +158,7 @@ const getDbTooling = database => {
   // Make sure we strip out any version number
   database = database.split(':')[0];
   // Choose wisely
-  if (_.includes(['mysql', 'mariadb'], database)) {
+  if (_.includes(['mysql'], database)) {
     return {mysql: mysqlCli};
   } else if (database === 'postgres') {
     return {psql: postgresCli};
