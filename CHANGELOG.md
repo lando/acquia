@@ -4,8 +4,6 @@
 
 ## v1.3.1 - [September 12, 2024](https://github.com/lando/acquia/releases/tag/v1.3.1)
 
-## v1.3.1 - [September 12, 2024](https://github.com/lando/acquia/releases/tag/v1.3.1)
-
 * Remove option of using MariaDB - It doesn't work and Acquia doesn't support it.
 
 ## v1.3.0 - [April 19, 2024](https://github.com/lando/acquia/releases/tag/v1.3.0)
