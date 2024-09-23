@@ -1,6 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
 * Upgrading PHP from 8.2 to 8.3 which is the new default at Acquia.
+* Upgrade @lando/mysql for better MySQL 8 support 
 
 ## v1.3.1 - [September 12, 2024](https://github.com/lando/acquia/releases/tag/v1.3.1)
 

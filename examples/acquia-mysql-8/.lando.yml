@@ -1,0 +1,9 @@
+name: acquia-mysql-8
+recipe: acquia
+services:
+  database:
+    type: "mysql:8.0"
+
+# do not remove this
+plugins:
+  "@lando/acquia": ../..
