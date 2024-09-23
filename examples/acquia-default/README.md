@@ -28,8 +28,8 @@ lando acli -V
 lando ssh -s appserver -c "apachectl -V | grep Apache/2.4"
 lando ssh -s appserver -c "curl -IL localhost" | grep Server | grep 2.4
 
-# Should use php 8.2, the default
-lando php -v | grep "PHP 8.2"
+# Should use php 8.3, the default
+lando php -v | grep "PHP 8.3"
 
 # Should be running mysql 5.7 by default
 lando mysql -V | grep 5.7
