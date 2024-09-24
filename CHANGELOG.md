@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+## v1.4.0 - [September 24, 2024](https://github.com/lando/acquia/releases/tag/v1.4.0)
+
 * Upgrading PHP from 8.2 to 8.3 which is the new default at Acquia.
 * Upgrade @lando/mysql for better MySQL 8 support 
 
