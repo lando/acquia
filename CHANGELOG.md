@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+  * Updated lando/php to v1.4.0.
+
   - Updated lando/mysql to v1.3.0.
 
 ## v1.4.0 - [September 24, 2024](https://github.com/lando/acquia/releases/tag/v1.4.0)
