@@ -1,7 +1,6 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
 * Updated release process to generate an edge release when stable releases are created.
-
 * Removed unnecessary dependency lando/nginx.
 * Updated lando/php to v1.5.0.
 * Updated lando/mysql to v1.3.0.
