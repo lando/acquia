@@ -30,6 +30,9 @@ lando pull --code=none --database=dev --files=none
 
 # Attempt a pull using a different key and secret
 lando pull --key "$ACQUIA_KEY" --secret "$ACQUIA_SECRET"
+
+# Use the on-demand flag to generate a new database copy before pulling
+lando pull --on-demand
 ```
 
 #### Options
@@ -41,6 +44,7 @@ lando pull --key "$ACQUIA_KEY" --secret "$ACQUIA_SECRET"
 --files, -f     The environment from which to pull the files
 --key           An Acquia API key
 --secret        An Acquia API secret
+--on-demand     Generate a fresh database export when pulling the database
 ```
 
 Please consult the manual import documentation below if this command produces an error.
