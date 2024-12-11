@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+## v1.6.0 - [December 11, 2024](https://github.com/lando/acquia/releases/tag/v1.6.0)
+
 ## v1.5.3 - [December 6, 2024](https://github.com/lando/acquia/releases/tag/v1.5.3)
 
 * Updated the version index.md to get Docuverse page to build correctly.
