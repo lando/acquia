@@ -26,7 +26,7 @@ lando start
 
 # Should pull down database for our drupal9 site
 cd drupal9
-lando pull --code dev --database dev --files none
+lando pull --code none --database dev --files none
 ```
 
 ## Verification commands
