@@ -1,4 +1,4 @@
-name: Drupal Tests
+name: Acquia Tests
 
 on:
   pull_request:
@@ -12,6 +12,7 @@ jobs:
       ACQUIA_API_SECRET: ${{ secrets.ACQUIA_API_SECRET }}
       RUN_ID: ${{ github.sha }}${{ github.run_id }}${{ github.run_number }}
     strategy:
+      fail-fast: false
       matrix:
         leia-tests:
           - acquia-custom
@@ -26,11 +27,11 @@ jobs:
           - acquia-default
           - acquia-xdebug
         lando-version:
-          - 3-edge-slim
+          - 3-edge
         os:
           - ubuntu-24.04
         node-version:
-          - '18'
+          - '20'
 
     steps:
       # Install deps and cache

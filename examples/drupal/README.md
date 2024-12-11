@@ -1,5 +1,4 @@
-Acquia Drupal 9 Example
-=======================
+# Acquia Drupal 9 Example
 
 This example exists primarily to test the following documentation:
 
@@ -7,8 +6,7 @@ This example exists primarily to test the following documentation:
 
 **Note that you will need to replace (or export) `$ACQUIA_API_KEY`, `$ACQUIA_API_SECRET` and `--acquia-app` to values that make sense for you.**
 
-Start up tests
---------------
+## Start up tests
 
 Run the following commands to get up and running with this example.
 
@@ -19,7 +17,7 @@ lando poweroff
 # Should initialize the lando acquia test drupal9 site
 rm -rf drupal9 && mkdir -p drupal9 && cd drupal9
 lando init --source acquia --acquia-key "$ACQUIA_API_KEY" --acquia-secret "$ACQUIA_API_SECRET" --acquia-app "53fd24cf-803f-4024-afac-c457cfc5c273" --acquia-key-name "$RUN_ID"
-echo -e "\nplugins:\n  \"@lando/acquia/\": ./../../../" >> .lando.yml
+cp ../../.lando.upstream.yml .lando.upstream.yml
 git stash
 
 # Should start up our drupal9 site successfully
@@ -28,11 +26,10 @@ lando start
 
 # Should pull down database for our drupal9 site
 cd drupal9
-lando pull --code dev --database dev --files none
+lando pull --code none --database dev --files none
 ```
 
-Verification commands
----------------------
+## Verification commands
 
 Run the following commands to validate things are rolling as they should.
 
@@ -76,7 +73,7 @@ lando ssh -c "env" | grep AH_SITE_ENVIRONMENT | grep LANDO
 lando ssh -c "env" | grep AH_SITE_GROUP | grep engagedemo
 lando ssh -c "env" | grep AH_SITE_UUID | grep 53fd24cf-803f-4024-afac-c457cfc5c273
 lando ssh -c "env" | grep ACLI_DB_HOST | grep database
-lando ssh -c "env" | grep ACLI_DB_USER | grep acquia 
+lando ssh -c "env" | grep ACLI_DB_USER | grep acquia
 lando ssh -c "env" | grep ACLI_DB_PASSWORD | grep acquia
 lando ssh -c "env" | grep ACLI_DB_NAME | grep acquia
 
@@ -100,8 +97,7 @@ cd drupal9
 lando ssh -s appserver -c "apachectl -V | grep 2.4."
 ```
 
-Destroy tests
--------------
+## Destroy tests
 
 Run the following commands to trash this app like nothing ever happened.
 

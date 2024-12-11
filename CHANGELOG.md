@@ -1,5 +1,12 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+* Optimized for `midcore`
+* Updated to [@lando/mailhog@1.2.3](https://github.com/lando/mailhog/releases/tag/v1.2.3).
+* Updated to [@lando/memcached@1.3.3](https://github.com/lando/memcached/releases/tag/v1.3.3).
+* Updated to [@lando/mysql@1.4.4](https://github.com/lando/mysql/releases/tag/v1.4.4).
+* Updated to [@lando/php@1.6.3](https://github.com/lando/php/releases/tag/v1.6.3).
+* Updated to [@lando/postgres@1.4.4](https://github.com/lando/postgres/releases/tag/v1.4.4).
+
 ## v1.6.0 - [December 11, 2024](https://github.com/lando/acquia/releases/tag/v1.6.0)
 
 * Optimized for `midcore`

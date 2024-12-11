@@ -27,6 +27,6 @@ module.exports = {
       options = _.merge({}, config, options);
       loadScripts(options);
       super(id, options, factory);
-    };
+    }
   },
 };

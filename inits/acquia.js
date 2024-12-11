@@ -181,14 +181,14 @@ module.exports = {
         },
       },
     },
-    build: (options, lando) => ([
+    build: () => ([
       {
         name: 'wait-for-user',
         cmd: '/helpers/acquia-wait-for-user.sh',
       },
       {
         name: 'get-user-account',
-        func: (options, lando) => {
+        func: options => {
           return api.auth(options['acquia-key'], options['acquia-secret'], true, true)
               .then(() => api.getAccount())
               .then(account => {
@@ -213,7 +213,7 @@ module.exports = {
       },
       {
         name: 'get-git-url',
-        func: (options, lando) => {
+        func: options => {
           return api.auth(options['acquia-key'], options['acquia-secret'], true, true)
               .then(() => api.getEnvironments(options['acquia-app']))
               .then(envs => {
