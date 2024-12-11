@@ -117,6 +117,6 @@ module.exports = {
         'push': getAcquiaPush({key, secret, account, appUuid}, keys),
       };
       super(id, options);
-    };
+    }
   },
 };

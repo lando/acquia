@@ -1,5 +1,12 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+* Optimized for `midcore`
+* Updated to [@lando/mailhog@1.2.3](https://github.com/lando/mailhog/releases/tag/v1.2.3).
+* Updated to [@lando/memcached@1.3.3](https://github.com/lando/memcached/releases/tag/v1.3.3).
+* Updated to [@lando/mysql@1.4.4](https://github.com/lando/mysql/releases/tag/v1.4.4).
+* Updated to [@lando/php@1.6.3](https://github.com/lando/php/releases/tag/v1.6.3).
+* Updated to [@lando/postgres@1.4.4](https://github.com/lando/postgres/releases/tag/v1.4.4).
+
 ## v1.5.3 - [December 6, 2024](https://github.com/lando/acquia/releases/tag/v1.5.3)
 
 * Updated the version index.md to get Docuverse page to build correctly.
@@ -22,7 +29,7 @@
 ## v1.4.0 - [September 24, 2024](https://github.com/lando/acquia/releases/tag/v1.4.0)
 
 * Upgrading PHP from 8.2 to 8.3 which is the new default at Acquia.
-* Upgrade @lando/mysql for better MySQL 8 support 
+* Upgrade @lando/mysql for better MySQL 8 support
 
 ## v1.3.1 - [September 12, 2024](https://github.com/lando/acquia/releases/tag/v1.3.1)
 

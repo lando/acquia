@@ -4,8 +4,7 @@ This example exists primarily to test the following documentation:
 
 * [Acquia Recipe](https://docs.lando.dev/acquia/config.html)
 
-Start up tests
---------------
+## Start up tests
 
 Run the following commands to get up and running with this example.
 
@@ -15,8 +14,7 @@ lando poweroff
 lando start
 ```
 
-Verification commands
----------------------
+## Verification commands
 
 Run the following commands to validate things are rolling as they should.
 
@@ -47,8 +45,7 @@ lando ssh -s appserver -c "curl -L localhost/site-environment.php" | grep "LANDO
 lando php -m | grep Xdebug
 ```
 
-Destroy tests
--------------
+## Destroy tests
 
 Run the following commands to trash this app like nothing ever happened.
 
