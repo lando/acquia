@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+## v1.6.1 - [December 11, 2024](https://github.com/lando/acquia/releases/tag/v1.6.1)
+
 * Optimized for `midcore`
 * Updated to [@lando/mailhog@1.2.3](https://github.com/lando/mailhog/releases/tag/v1.2.3).
 * Updated to [@lando/memcached@1.3.3](https://github.com/lando/memcached/releases/tag/v1.3.3).
