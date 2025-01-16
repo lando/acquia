@@ -1,6 +1,6 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
-  - Updated lando/php to v1.7.1.
+* Updated lando/php to v1.7.1.
 
 ## v1.6.1 - [December 11, 2024](https://github.com/lando/acquia/releases/tag/v1.6.1)
 
