@@ -29,5 +29,5 @@ You can learn more about the `db-import` command [over here](https://docs.lando.
 ```bash
 # Use the ACLI directly
 lando acli pull:files
-```tabase main < dump.sql
+lando database main < dump.sql
 ```
