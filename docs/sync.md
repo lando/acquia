@@ -39,8 +39,8 @@ lando pull --key "$ACQUIA_KEY" --secret "$ACQUIA_SECRET"
 --code, -c      The environment from which to pull the code
 --database, -d  The environment from which to pull the database
 --files, -f     The environment from which to pull the files
---key           An Acquia API key
---secret        An Acquia API secret
+--key           An Acquia API Client ID
+--secret        An Acquia API Client Secret
 ```
 
 Please consult the manual import documentation below if this command produces an error.
@@ -67,6 +67,6 @@ lando push
 --code, -c      The environment from which to pull the code
 --database, -d  The environment from which to pull the database
 --files, -f     The environment from which to pull the files
---key           An Acquia API key
---secret        An Acquia API secret
+--key           An Acquia API Client ID
+--secret        An Acquia API Client Secret
 ```
