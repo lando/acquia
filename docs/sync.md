@@ -43,7 +43,7 @@ lando pull --key "$ACQUIA_KEY" --secret "$ACQUIA_SECRET"
 --secret        An Acquia API Client Secret
 ```
 
-Please consult the manual import documentation below if this command produces an error.
+Please consult the [manual import documentation](./guides/manually-importing-databases.md) if this command produces an error.
 
 ## Pushing
 
@@ -60,13 +60,15 @@ Note again that if Lando cannot find an [Acquia API key](https://docs.acquia.com
 lando push
 ```
 
+It's important to note that by default, `lando push` will only push code changes. To push your database or files, you must explicitly use the `--database` or `--files` options, specifying the target environment. For example, `lando push --database=dev --files=dev` would push the database and files to the 'dev' environment. This default behavior encourages best practices, where database and file changes are typically handled with more caution or through different workflows.
+
 #### Options
 
 ```bash
 --verbose, -v   Runs with extra verbosity
---code, -c      The environment from which to pull the code
---database, -d  The environment from which to pull the database
---files, -f     The environment from which to pull the files
+--code, -c      The environment to which to push the code
+--database, -d  The environment to which to push the database
+--files, -f     The environment to which to push the files
 --key           An Acquia API Client ID
 --secret        An Acquia API Client Secret
 ```

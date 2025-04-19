@@ -4,9 +4,12 @@ config:
   php: 8.1
 services:
   database:
-    type: mysql:8.0
+    type: mysql:8.0 # Explicitly use MySQL 8.0 for this example
 
-# do not remove this
+# Plugin loading configuration for testing:
+# Ensures Lando uses the local development version of the @lando/acquia plugin.
+# Also, forces the use of the @lando/mysql plugin version bundled with the local @lando/acquia plugin
+# (resolved from node_modules) to ensure consistent MySQL service behavior for this test.
 plugins:
-  "@lando/acquia": ../..
-  "@lando/mysql": ../../node_modules/@lando/mysql
+  "@lando/acquia": ../.. # Path to the local acquia plugin
+  "@lando/mysql": ../../node_modules/@lando/mysql # Path to the acquia plugin's bundled mysql plugin

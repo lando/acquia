@@ -5,41 +5,30 @@ description: How to install the Lando Acquia Plugin.
 
 # Installation
 
-If you are using Lando 3 then its *highly likely* you already have this plugin as its included by default in most installation pathways. You can verify this by running:
+If you are using Lando 3 then it's highly likely you already have this plugin as it's included by default in most installation pathways. You can verify this by running:
 
 ```sh
 lando version --component @lando/acquia
 ```
 
-However if you would like to manually install the plugin, update it to the bleeding edge or install a particular version then use the below.
+However, if you would like to manually install the plugin, update it to the latest development version, or install a particular version, you can use the `lando plugin-add` command. For more details on how to use this command, please see the [official documentation](https://docs.lando.dev/cli/plugin-add.html).
 
-::: code-group
-```sh [lando 3.21+]
+For example, to install the latest version of the Acquia plugin, you would run:
+```bash
 lando plugin-add @lando/acquia
 ```
 
-```sh [hyperdrive]
-# @NOTE: This doesn't actaully work yet
-hyperdrive install @lando/acquia
+To install a specific version, you can specify it like so:
+```bash
+lando plugin-add @lando/acquia@0.5.2
 ```
 
-```sh [docker]
-# Ensure you have a global plugins directory
-mkdir -p ~/.lando/plugins
+To update Lando and its plugins, including this one, you can use the `lando update` command. More information can be found in the [update documentation](https://docs.lando.dev/cli/update.html).
 
-# Install plugin
-# NOTE: Modify the "npm install @lando/acquia" line to install a particular version eg
-# npm install @lando/acquia@0.5.2
-docker run --rm -it -v ${HOME}/.lando/plugins:/plugins -w /tmp node:18-alpine sh -c \
-  "npm init -y \
-  && npm install @lando/acquia --production --flat --no-default-rc --no-lockfile --link-duplicates \
-  && npm install --production --cwd /tmp/node_modules/@lando/acquia \
-  && mkdir -p /plugins/@lando \
-  && mv --force /tmp/node_modules/@lando/acquia /plugins/@lando/acquia"
-
-# Rebuild the plugin cache
-lando --clear
+```bash
+lando update
 ```
-:::
 
 You should be able to verify the plugin is installed by running `lando config --path plugins` and checking for `@lando/acquia`. This command will also show you _where_ the plugin is being loaded from.
+
+<!-- TODO: Consider adding a section on how to uninstall the plugin. -->

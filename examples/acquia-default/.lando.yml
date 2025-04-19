@@ -1,8 +1,11 @@
 name: acquia-default
 recipe: acquia
-config:
-  xdebug: true
+# This example uses the default settings from the Acquia recipe.
+# Specific PHP version, services, etc., will be determined by the recipe defaults.
+config: {}
 
-# do not remove this
+# Instructs Lando to use the local development version of the @lando/acquia plugin
+# located at the relative path '../..' from this example's directory.
+# This is crucial for testing local plugin changes.
 plugins:
   "@lando/acquia": ../..

@@ -1,5 +1,34 @@
 #!/bin/bash
 
+#
+# Pulls code, database, and/or files from an Acquia Cloud environment to the local Lando setup.
+#
+# This script is executed by the `lando pull` command for Acquia recipes.
+# It uses `acli` (Acquia CLI) to perform the pull operations.
+#
+# Arguments:
+#   -k, --key <API_KEY>        : Acquia API Key for authentication.
+#   -s, --secret <API_SECRET>  : Acquia API Secret for authentication.
+#   -c, --code <ENV_NAME>      : The Acquia environment name from which to pull code (e.g., 'dev', 'stg').
+#                                  Defaults to 'dev'. Use 'none' to skip pulling code.
+#   -d, --database <ENV_NAME>  : The Acquia environment name from which to pull the database (e.g., 'dev', 'stg').
+#                                  Defaults to 'dev'. Use 'none' to skip pulling the database.
+#                                  If pulling a database, existing tables in the local 'acquia' db are dropped.
+#   -f, --files <ENV_NAME>     : The Acquia environment name from which to pull files (e.g., 'dev', 'stg').
+#                                  Defaults to 'dev'. Use 'none' to skip pulling files.
+#   --rsync                    : (Currently parsed but not explicitly used by acli pull commands in this script).
+#   --no-auth                  : (Currently parsed but not explicitly used to prevent auth if key/secret are given).
+#
+# Environment Variables:
+#   AH_SITE_GROUP              : The Acquia site group (e.g., 'mysite'). Used to construct full environment
+#                                  identifiers like `mysite.dev` for acli commands.
+#   LANDO_DB_USER_TABLE        : Optional. The name of a table to check for after a database pull to verify success.
+#                                  Defaults to 'users' if not set.
+#
+# Example usage (typically invoked by Lando, not directly):
+#   /scripts/acquia-pull.sh --key <key> --secret <secret> --code dev --database dev --files stage
+#
+
 set -e
 
 # Get the lando logger

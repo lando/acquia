@@ -4,6 +4,8 @@ config:
   php: "8.0"
   acli_version: 1.30.0
 
-# do not remove this
+# Instructs Lando to use the local development version of the @lando/acquia plugin
+# located at the relative path '../..' from this example's directory.
+# This is crucial for testing local plugin changes.
 plugins:
   "@lando/acquia": ../..

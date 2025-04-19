@@ -1,5 +1,33 @@
 #!/bin/bash
 
+#
+# Pushes code, database, and/or files from the local Lando setup to an Acquia Cloud environment.
+#
+# This script is executed by the `lando push` command for Acquia recipes.
+# It uses `acli` (Acquia CLI) to perform the push operations.
+#
+# Arguments:
+#   -k, --key <API_KEY>        : Acquia API Key for authentication.
+#   -s, --secret <API_SECRET>  : Acquia API Secret for authentication.
+#   -c, --code <ENV_NAME>      : The Acquia environment name to which local code will be pushed.
+#                                  Defaults to 'none'. If not 'none', the script cds to $LANDO_MOUNT
+#                                  before running `acli push:code`.
+#   -m, --message <MESSAGE>    : A commit message for the code push. (Parsed, but `acli push:code` might handle messages interactively or via other means).
+#   -d, --database <ENV_NAME>  : The Acquia environment name to which the local database will be pushed.
+#                                  Defaults to 'none'.
+#   -f, --files <ENV_NAME>     : The Acquia environment name to which local files will be pushed.
+#                                  Defaults to 'none'.
+#
+# Environment Variables:
+#   LANDO_MOUNT                : The mount path of the application code within the container (e.g., /app).
+#                                  Used for `cd $LANDO_MOUNT` before `acli push:code`.
+#   AH_SITE_GROUP              : The Acquia site group (e.g., 'mysite'). Used to construct full environment
+#                                  identifiers like `mysite.dev` for acli commands.
+#
+# Example usage (typically invoked by Lando, not directly):
+#   /scripts/acquia-push.sh --key <key> --secret <secret> --code dev --database dev --files stage -m "My latest changes"
+#
+
 set -e
 
 # Get the lando logger

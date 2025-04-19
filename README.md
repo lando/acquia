@@ -37,15 +37,15 @@ lando pull
 lando info
 ```
 
-Once your project is running you can access [relevant tooling commands](https://github.com/lando/acquia/blob/main/docs/usage.md#application-tooling).
+Once your project is running you can access [relevant tooling commands](https://docs.lando.dev/acquia/tooling.html).
 
 For more info you should check out the [docs](https://docs.lando.dev/acquia):
 
 * [Getting Started](https://docs.lando.dev/acquia/getting-started.html)
 * [Configuration](https://docs.lando.dev/acquia/config.html)
 * [Tooling](https://docs.lando.dev/acquia/tooling.html)
-* [Syncing](https://docs.lando.dev/acquia/syncing.html)
-* [Guides](https://docs.lando.dev/acquia/adding-more-tooling.html)
+* [Syncing](https://docs.lando.dev/acquia/sync.html)
+* [Guides](https://docs.lando.dev/acquia/guides.html)
 * [Examples](https://github.com/lando/acquia/tree/main/examples)
 * [Development](https://docs.lando.dev/acquia/development.html)
 
