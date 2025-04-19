@@ -60,4 +60,4 @@ function sidebar() {
     },
     {text: 'Guides', link: '/guides', activeMatch: '/guides'},
   ];
-};
+}
