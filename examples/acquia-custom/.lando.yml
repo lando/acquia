@@ -4,8 +4,11 @@ config:
   php: '8.1'
   composer_version: '2.0.7'
   xdebug: true
-  inbox: false
-# do not remove this
+  inbox: false # Disable MailHog (inbox service) for this example
+
+# Instructs Lando to use the local development version of the @lando/acquia plugin
+# located at the relative path '../..' from this example's directory.
+# This is crucial for testing local plugin changes.
 plugins:
   "@lando/acquia": ../..
 

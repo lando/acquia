@@ -1,7 +1,7 @@
 ---
-description: Home helpful guides for the VitePress Default Theme Plus.
+description: Helpful guides and tutorials for using the Lando Acquia plugin.
 layout: page
-title: Guides
+title: Acquia Plugin Guides
 sidebar: false
 ---
 
@@ -16,10 +16,10 @@ const {prev, pages} = useCollection('guide');
 <VPLCollectionPage>
   <VPLCollectionPageTitle>
     <template #title>
-      Guides
+      Acquia Plugin Guides
     </template>
     <template #lead>
-      Helpful tutorial-like content!
+      Tutorials and step-by-step instructions for common tasks with the Lando Acquia plugin.
     </template>
   </VPLCollectionPageTitle>
   <VPLCollectionItems :items="pages"/>

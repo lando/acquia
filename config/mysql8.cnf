@@ -1,6 +1,10 @@
 #
 # The MySQL database server configuration file for Lando
 # LANDOACQUIAMYSQL8CNF
+#
+# This configuration is optimized for MySQL 8.x in Lando's Acquia recipe.
+# Like its non-8.x counterpart, it prioritizes performance for development.
+# Users should be cautious if attempting to use these settings for a production environment.
 
 [mysqld]
 #

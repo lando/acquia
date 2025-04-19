@@ -3,6 +3,8 @@ recipe: acquia
 config:
   php: 8.2
 
-# do not remove this
+# Instructs Lando to use the local development version of the @lando/acquia plugin
+# located at the relative path '../..' from this example's directory.
+# This is crucial for testing local plugin changes.
 plugins:
   "@lando/acquia": ../..

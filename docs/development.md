@@ -62,7 +62,7 @@ npm run docs:build
 npm run docs:build
 ```
 
-If you are more interested in the internals of the docs they use [VitePress](https://vitepress.dev/) and our [SPECIAL THEME](https://vitepress-theme-default-plus.lando.dev).
+If you are more interested in the internals of the docs they use [VitePress](https://vitepress.dev/) and our [custom theme](https://vitepress-theme-default-plus.lando.dev).
 
 ## Testing
 
@@ -91,7 +91,7 @@ npm run test:unit
 
 We do end to end testing with our made-just-for-Lando testing framework [Leia](https://github.com/lando/leia). Leia allows us to define tests as a series of commented shell commands in human-readable markdown files. Here is a simple example:
 
-```md
+```markdown
 Start up tests
 --------------
 
@@ -129,7 +129,7 @@ If you've created new testable examples then you will also need to let GitHub Ac
 
 To do that you will either want to add the tests to an existing workflow that makes sense or create a new workflow. If you are creating a new workflow you should just copy an existing one and modify the filename and `name` key to something that makes sense.
 
-To add the new tests to the workflow just modify `jobs.leia-tests.strategy.matrix.leia-tests` with the new tests.
+To add the new tests to the workflow just modify `jobs.leia-tests.strategy.matrix.leia-tests` with the new tests. The value should be the path to the example directory relative to the plugin root, e.g., `examples/acquia-default`.
 
 ```yaml
 jobs:
@@ -149,7 +149,7 @@ For a deeper dive on Leia you can go [here](https://github.com/lando/leia).
 
 ## Releasing
 
-To deploy and publish a new version of the package to the `npm` registry you need only [create a release on GitHub](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository). The GitHub release will automatically [prepare the release](https://github.com/lando/prepare-release-action) and deploy it to NPM, so make sure to use the correct semantic version for the release title (ex: \`v0.8.0\`).
+To deploy and publish a new version of the package to the `npm` registry you need only [create a release on GitHub](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository). The GitHub release will automatically [prepare the release](https://github.com/lando/prepare-release-action) and deploy it to NPM, so make sure to use the correct semantic version for the release title (e.g., `v0.8.0`).
 
 Also note that if you create a "pre-release" it will tag the `npm` package with `edge` instead of the default `latest` tag. Also note that while you can toggle the pre-release checkbox after the initial release creation this will not trigger a new release and/or promote the release from `edge` to `latest`. If you want to deploy to `latest` then create a new release without pre-released checked.
 

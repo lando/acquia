@@ -5,7 +5,7 @@ description: Learn about the various out-of-the-box tooling you get with the Lan
 
 # CLI Tooling
 
-Each Lando Acquia recipe will also ship with the Acquia toolchain. This means you can use `drush` and `acli` via Lando and avoid mucking up your actual computer trying to manage `php` versions and tooling.
+Each Lando Acquia recipe will also ship with the Acquia toolchain. This means you can use `drush` and `acli` via Lando and avoid needing to install and manage specific `php` versions and related tooling directly on your host machine.
 
 ```bash
 lando acli              Runs acli commands
@@ -17,7 +17,7 @@ lando mysql             Drops into a MySQL shell on a database service
 lando php               Runs php commands
 lando pull              Pull code, database and/or files from acquia
 lando push              Push code, database and/or files to acquia
-lando switch            Switch to a different multidev environment
+lando switch            Switch the active Acquia multidev environment for `lando pull/push` operations.
 lando version           Displays the lando version
 ```
 

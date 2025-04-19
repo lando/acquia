@@ -7,7 +7,7 @@ description: Learn how to configure the Lando Acquia recipe.
 
 While Lando [recipes](https://docs.lando.dev/landofile/recipes.html) set sane defaults so they work out of the box, they are also [configurable](https://docs.lando.dev/landofile/recipes.html#config).
 
-Here are the configuration options, set to the default values, for this recipe. If you are unsure about where this goes or what this means we *highly recommend* scanning the [recipes documentation](https://docs.lando.dev/landofile/recipes.html) to get a good handle on how the magicks work.
+Here are the configuration options, set to the default values, for this recipe. If you are unsure about where this goes or what this means we *highly recommend* scanning the [recipes documentation](https://docs.lando.dev/landofile/recipes.html) to get a good handle on how the recipe functions.
 
 ```yaml
 recipe: acquia
@@ -24,7 +24,7 @@ config:
   xdebug: false
 ```
 
-If you do not already have a [Landofile](https://docs.lando.dev/landofile/) for your Acquia site, we highly recommend you use [`lando init`](https://docs.lando.dev/cli/init.html) to get one as that will automatically populate the `ah_application_uuid`, `ah_site_group` and `php` version for you. Manually creating a Landofile with these things set correctly can be difficult and is *highly discouraged.*
+If you do not already have a [Landofile](https://docs.lando.dev/landofile/) for your Acquia site, we highly recommend you use [`lando init`](https://docs.lando.dev/cli/init.html) to get one as that will automatically populate the `ah_application_uuid`, `ah_site_group` and `php` version for you. Manually creating a Landofile with these items set correctly can be difficult, and we recommend using `lando init` for accuracy.
 
 Note that if the above config options are not enough, all Lando recipes can be further [extended and overridden](https://docs.lando.dev/landofile/recipes.html#extending-and-overriding-recipes).
 
@@ -60,7 +60,7 @@ By default, Lando will spin up an approximation of the Acquia stack:
 
 Where acquia provides multiple options, we'll choose the current default. PHP is a good example.
 
-Not current supported but coming soon:
+Not current supported:
 
 * Solr `3`, `4`, `7`
 
@@ -68,7 +68,7 @@ Additionally Lando will provide a configurable `mailhog` service so that you can
 
 This means that what works on Acquia **should** also work on Lando. Please recognize, however, that the Acquia platform is changing all the time and Lando is necessarily reactive in some cases.
 
-If you do not need the umlimited power of a fully armed and operational Acquia stack you can tell Lando to *not use* the more advanced parts of Acquia's stack. This can save time when starting up your app.
+If you do not require all components of the Acquia stack, you can tell Lando to *not use* the more advanced parts of Acquia's stack. This can save time when starting up your app.
 
 ```yaml
 recipe: acquia
@@ -84,7 +84,7 @@ Note that if your application code depends on one of these services and you disa
 
 ## Using acli
 
-While in `alpha` Lando ships the `acli` built from the latest commit to `master` on GitHub. You can change this behavior in a few ways:
+Lando currently ships `acli` built from the latest commit to `master` on GitHub. You can change this behavior in a few ways:
 
 1. Install latest stable release
 
@@ -109,7 +109,7 @@ This is just a passthrough option to the [xdebug setting](https://docs.lando.dev
 ```yaml
 recipe: acquia
 config:
-  xdebug: true|false
+  xdebug: true # or false
 ```
 
 However, for more information, we recommend you consult the [php service documentation](https://docs.lando.dev/plugins/php/).

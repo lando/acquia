@@ -1,5 +1,13 @@
 'use strict';
 
+/**
+ * @file
+ * This file defines the base Lando builder for Acquia recipes.
+ * It provides common configurations for services (appserver, database),
+ * tooling (Composer, Drush, DB CLIs), and default file handling necessary
+ * to emulate an Acquia environment locally.
+ */
+
 // Modules
 const fs = require('fs');
 const _ = require('lodash');
@@ -9,10 +17,16 @@ const utils = require('../lib/utils.js');
 const warnings = require('../lib/warnings.js');
 
 // "Constants"
+/** Default Drush 8 version to use. */
 const DRUSH8 = '8.4.10';
+/** Default Drush 7 version to use (typically for older PHP versions). */
 const DRUSH7 = '7.4.0';
 
-// Tooling defaults
+/**
+ * Default tooling definitions for Acquia recipes.
+ * Includes configurations for Composer, database import/export, and PHP CLI.
+ * @type {object}
+ */
 const toolingDefaults = {
   'composer': {
     service: 'appserver',
@@ -57,7 +71,10 @@ const toolingDefaults = {
   },
 };
 
-// Default DB cli commands
+/**
+ * Configuration for the MySQL command-line interface.
+ * @type {object}
+ */
 const mysqlCli = {
   service: ':host',
   description: 'Drops into a MySQL shell on a database service',
@@ -70,6 +87,10 @@ const mysqlCli = {
     },
   },
 };
+/**
+ * Configuration for the PostgreSQL (psql) command-line interface.
+ * @type {object}
+ */
 const postgresCli = {
   service: ':host',
   description: 'Drops into a psql shell on a database service',
@@ -84,15 +105,23 @@ const postgresCli = {
   },
 };
 
-/*
- * Helper to get database type
+/**
+ * Determines the database type (e.g., 'mysql', 'postgres') based on Lando app configuration.
+ *
+ * @param {object} options The Lando recipe/service options.
+ * @returns {string} The database type string (e.g., 'mysql:8.0', 'postgres:13', defaults to 'mysql').
  */
 const getDatabaseType = options => {
   return _.get(options, '_app.config.services.database.type', options.database) ?? 'mysql';
 };
 
-/*
- * Helper to get config defaults
+/**
+ * Determines and verifies default configuration files (e.g., for vhosts, database) based on options.
+ * Modifies `options.defaultFiles` in place if a Nginx vhost or specific MySQL versions are used,
+ * and removes entries for files that don't exist at `options.confDest`.
+ *
+ * @param {object} options The Lando recipe options, including `via`, `database`, `defaultFiles`, and `confDest`.
+ * @returns {object} The modified `options.defaultFiles` object.
  */
 const getConfigDefaults = options => {
   // Get the viaconf
@@ -121,8 +150,11 @@ const getConfigDefaults = options => {
   return options.defaultFiles;
 };
 
-/*
- * Helper to get services
+/**
+ * Constructs the service definitions for the appserver and database based on recipe options.
+ *
+ * @param {object} options The Lando recipe options (e.g., `php` version, `database` type, `webroot`).
+ * @returns {object} An object containing definitions for `appserver` and `database` services.
  */
 const getServices = options => ({
   appserver: {
@@ -151,8 +183,11 @@ const getServices = options => ({
   },
 });
 
-/*
- * Helper to get the phar build command
+/**
+ * Provides the appropriate database CLI tooling configuration based on the database type.
+ *
+ * @param {string} database The database type string (e.g., 'mysql', 'postgres', 'mongo').
+ * @returns {object | undefined} An object containing the tooling definition for the specified database (e.g., `{mysql: mysqlCli}`), or undefined if not supported.
  */
 const getDbTooling = database => {
   // Make sure we strip out any version number
@@ -170,8 +205,14 @@ const getDbTooling = database => {
   }
 };
 
-/*
- * Helper to get service config
+/**
+ * Gathers service-specific configuration file paths.
+ * It checks for user-provided paths in `options.config` first, then falls back to default files
+ * specified in `options.defaultFiles` located in `options.confDest`.
+ *
+ * @param {object} options The Lando recipe options.
+ * @param {Array<string>} [types] The types of configuration to look for (e.g., 'php' for php.ini).
+ * @returns {object} An object mapping configuration types to their resolved file paths.
  */
 const getServiceConfig = (options, types = ['php', 'server', 'vhosts']) => {
   const config = {};
@@ -187,8 +228,11 @@ const getServiceConfig = (options, types = ['php', 'server', 'vhosts']) => {
   return config;
 };
 
-/*
- * Helper to get tooling
+/**
+ * Merges default tooling with database-specific CLI tooling.
+ *
+ * @param {object} options The Lando recipe options, used to determine `options.database`.
+ * @returns {object} The complete tooling configuration object.
  */
 const getTooling = options => _.merge({}, toolingDefaults, getDbTooling(options.database));
 
@@ -196,28 +240,60 @@ const getTooling = options => _.merge({}, toolingDefaults, getDbTooling(options.
 /*
  * Build Acquia 7
  */
+/**
+ * Lando builder definition for the Acquia base recipe.
+ * This is intended to be extended by more specific Acquia recipe builders.
+ * It sets up default configurations for PHP, database, web server, and common tooling like Drush and Composer.
+ */
 module.exports = {
   name: '_acquia-base',
   parent: '_recipe',
+  /** Default configuration for the Acquia base recipe. */
   config: {
+    /** @type {Array<string>} Array of shell commands to run during the build phase of the appserver. */
     build: [],
+    /** @type {object} Composer requirements. Keys are package names, values are version constraints. */
     composer: {},
+    /** @type {string} Source directory for default configuration files (e.g., php.ini, vhost templates). */
     confSrc: path.resolve(__dirname, '..', 'config'),
+    /** @type {object} User-overrideable configuration file paths for services. */
     config: {},
+    /** @type {string} Default database type and version (e.g., 'mysql:5.7', 'postgres:12'). */
     database: 'mysql',
+    /** @type {object} Mapping of default configuration file names for different components. */
     defaultFiles: {
       php: 'php.ini',
     },
+    /** @type {string} Default PHP version. */
     php: '7.2',
+    /** @type {object} Default Drush tooling configuration. */
     tooling: {drush: {
       service: 'appserver',
     }},
+    /** @type {string} Web server type ('apache' or 'nginx'). */
     via: 'apache',
+    /** @type {string} Path to the webroot within the appserver. */
     webroot: '.',
+    /** @type {boolean} Whether to enable Xdebug. */
     xdebug: false,
+    /** @type {object} Proxy configuration. */
     proxy: {},
   },
+  /**
+   * The builder function that returns the LandoAcquiaBase class.
+   * @param {Function} parent The parent class this builder extends (_recipe).
+   * @param {object} config The default configuration for this recipe.
+   * @returns {Function} The LandoAcquiaBase class.
+   */
   builder: (parent, config) => class LandoAcquiaBase extends parent {
+    /**
+     * Constructor for the LandoAcquiaBase class.
+     * Merges default and user-provided options, configures Drush installation (Composer or Phar),
+     * sets up warnings for modern Drush versions, and defines legacy environment variables.
+     *
+     * @param {string} id The application instance ID.
+     * @param {object} [options] User-provided options to override defaults.
+     */
     constructor(id, options = {}) {
       options = _.merge({}, config, options);
       // Set the default drush version if we don't have it
