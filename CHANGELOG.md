@@ -1,6 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
 * Updated to [@lando/php@1.7.1](https://github.com/lando/php/releases/tag/v1.7.1).
+* Updated to [@lando/mysql@1.5.0](https://github.com/lando/mysql/releases/tag/v1.5.0).
 * Updated API key prompts to match Acquia's terminology of Client ID and Client Secret.
 
 ## v1.6.1 - [December 11, 2024](https://github.com/lando/acquia/releases/tag/v1.6.1)
