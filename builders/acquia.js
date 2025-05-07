@@ -50,7 +50,7 @@ module.exports = {
    * The builder function that returns the LandoAcquia class.
    * @param {Function} parent The parent class this builder extends (typically a Recipe base class).
    * @param {object} config The default configuration for this recipe.
-   * @returns {Function} The LandoAcquia class.
+   * @return {Function} The LandoAcquia class.
    */
   builder: (parent, config) => class LandoAcquia extends parent {
     /**

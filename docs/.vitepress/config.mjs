@@ -44,7 +44,7 @@ export default defineConfig({
  * The sidebar is organized into collapsible sections, each containing links
  * to different documentation pages.
  *
- * @returns {Array<object>} An array of sidebar group objects, where each object
+ * @return {Array<object>} An array of sidebar group objects, where each object
  * defines a section with a title (`text`), collapsibility (`collapsed`),
  * and an array of navigation items (`items`). Each item has a `text` (link label)
  * and a `link` (URL path). Some items might have an `activeMatch` property to control

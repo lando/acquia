@@ -109,7 +109,7 @@ const postgresCli = {
  * Determines the database type (e.g., 'mysql', 'postgres') based on Lando app configuration.
  *
  * @param {object} options The Lando recipe/service options.
- * @returns {string} The database type string (e.g., 'mysql:8.0', 'postgres:13', defaults to 'mysql').
+ * @return {string} The database type string (e.g., 'mysql:8.0', 'postgres:13', defaults to 'mysql').
  */
 const getDatabaseType = options => {
   return _.get(options, '_app.config.services.database.type', options.database) ?? 'mysql';
@@ -121,7 +121,7 @@ const getDatabaseType = options => {
  * and removes entries for files that don't exist at `options.confDest`.
  *
  * @param {object} options The Lando recipe options, including `via`, `database`, `defaultFiles`, and `confDest`.
- * @returns {object} The modified `options.defaultFiles` object.
+ * @return {object} The modified `options.defaultFiles` object.
  */
 const getConfigDefaults = options => {
   // Get the viaconf
@@ -154,7 +154,7 @@ const getConfigDefaults = options => {
  * Constructs the service definitions for the appserver and database based on recipe options.
  *
  * @param {object} options The Lando recipe options (e.g., `php` version, `database` type, `webroot`).
- * @returns {object} An object containing definitions for `appserver` and `database` services.
+ * @return {object} An object containing definitions for `appserver` and `database` services.
  */
 const getServices = options => ({
   appserver: {
@@ -187,7 +187,7 @@ const getServices = options => ({
  * Provides the appropriate database CLI tooling configuration based on the database type.
  *
  * @param {string} database The database type string (e.g., 'mysql', 'postgres', 'mongo').
- * @returns {object | undefined} An object containing the tooling definition for the specified database (e.g., `{mysql: mysqlCli}`), or undefined if not supported.
+ * @return {object | undefined} An object containing the tooling definition for the specified database (e.g., `{mysql: mysqlCli}`), or undefined if not supported.
  */
 const getDbTooling = database => {
   // Make sure we strip out any version number
@@ -212,7 +212,7 @@ const getDbTooling = database => {
  *
  * @param {object} options The Lando recipe options.
  * @param {Array<string>} [types] The types of configuration to look for (e.g., 'php' for php.ini).
- * @returns {object} An object mapping configuration types to their resolved file paths.
+ * @return {object} An object mapping configuration types to their resolved file paths.
  */
 const getServiceConfig = (options, types = ['php', 'server', 'vhosts']) => {
   const config = {};
@@ -232,7 +232,7 @@ const getServiceConfig = (options, types = ['php', 'server', 'vhosts']) => {
  * Merges default tooling with database-specific CLI tooling.
  *
  * @param {object} options The Lando recipe options, used to determine `options.database`.
- * @returns {object} The complete tooling configuration object.
+ * @return {object} The complete tooling configuration object.
  */
 const getTooling = options => _.merge({}, toolingDefaults, getDbTooling(options.database));
 
@@ -283,7 +283,7 @@ module.exports = {
    * The builder function that returns the LandoAcquiaBase class.
    * @param {Function} parent The parent class this builder extends (_recipe).
    * @param {object} config The default configuration for this recipe.
-   * @returns {Function} The LandoAcquiaBase class.
+   * @return {Function} The LandoAcquiaBase class.
    */
   builder: (parent, config) => class LandoAcquiaBase extends parent {
     /**

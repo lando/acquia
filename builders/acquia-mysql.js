@@ -24,7 +24,7 @@ module.exports = {
   /**
    * Builder function that returns the AcquiaMySQL class.
    * @param {Function} parent The parent class this builder extends (typically a Service base class).
-   * @returns {Function} The AcquiaMySQL class, which extends the Lando MySQL builder.
+   * @return {Function} The AcquiaMySQL class, which extends the Lando MySQL builder.
    */
   builder: parent => class AcquiaMySQL extends LandoMysql.builder(parent, LandoMysql.config) {
     /**

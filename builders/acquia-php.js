@@ -21,7 +21,7 @@ module.exports = {
   /**
    * Builder function that returns the AcquiaPHP class.
    * @param {Function} parent The parent class this builder extends (typically a Service base class).
-   * @returns {Function} The AcquiaPHP class, which extends the Lando PHP builder.
+   * @return {Function} The AcquiaPHP class, which extends the Lando PHP builder.
    */
   builder: parent => class AcquiaPHP extends LandoPhp.builder(parent, LandoPhp.config) {
     /**
