@@ -24,7 +24,7 @@ module.exports = {
   /**
    * Builder function that returns the AcquiaMailhog class.
    * @param {Function} parent The parent class this builder extends (typically a Service base class).
-   * @returns {Function} The AcquiaMailhog class, which extends the Lando MailHog builder.
+   * @return {Function} The AcquiaMailhog class, which extends the Lando MailHog builder.
    */
   builder: parent => class AcquiaMailhog extends LandoMailhog.builder(parent, LandoMailhog.config) {
     /**

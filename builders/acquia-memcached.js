@@ -24,7 +24,7 @@ module.exports = {
   /**
    * Builder function that returns the AcquiaMemcached class.
    * @param {Function} parent The parent class this builder extends (typically a Service base class).
-   * @returns {Function} The AcquiaMemcached class, which extends the Lando Memcached builder.
+   * @return {Function} The AcquiaMemcached class, which extends the Lando Memcached builder.
    */
   builder: parent => class AcquiaMemcached extends LandoMemcached.builder(parent, LandoMemcached.config) {
     /**

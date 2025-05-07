@@ -24,7 +24,7 @@ module.exports = {
   /**
    * Builder function that returns the AcquiaPostgres class.
    * @param {Function} parent The parent class this builder extends (typically a Service base class).
-   * @returns {Function} The AcquiaPostgres class, which extends the Lando Postgres builder.
+   * @return {Function} The AcquiaPostgres class, which extends the Lando Postgres builder.
    */
   builder: parent => class AcquiaPostgres extends LandoPostgres.builder(parent, LandoPostgres.config) {
     /**
