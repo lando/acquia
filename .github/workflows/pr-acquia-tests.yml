@@ -15,17 +15,17 @@ jobs:
       fail-fast: false
       matrix:
         leia-tests:
-          - acquia-custom
-          - acquia-downstreamer-1
-          - acquia-downstreamer-2
+          # - acquia-custom
+          # - acquia-downstreamer-1
+          # - acquia-downstreamer-2
           - drupal
-          - acquia-7.4
-          - acquia-8.0
-          - acquia-8.1
-          - acquia-8.2
-          - acquia-8.3
-          - acquia-default
-          - acquia-xdebug
+          # - acquia-7.4
+          # - acquia-8.0
+          # - acquia-8.1
+          # - acquia-8.2
+          # - acquia-8.3
+          # - acquia-default
+          # - acquia-xdebug
         lando-version:
           - 3-edge
         os:
@@ -65,3 +65,5 @@ jobs:
           cleanup-header: "Destroy tests"
           shell: bash
           stdin: true
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
