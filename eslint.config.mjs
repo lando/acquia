@@ -40,6 +40,11 @@ export default [
     rules: {
       'arrow-parens': ['error', 'as-needed'],
 
+      'indent': ['error', 2, {
+        MemberExpression: 1,
+        SwitchCase: 1,
+      }],
+
       'max-len': ['error', {
         code: 140,
         ignoreComments: true,

@@ -20,23 +20,23 @@ module.exports = (app, lando) => {
         if (answers.key && answers.secret) {
           const api = new API();
           return api.auth(answers.key, answers.secret, true, true)
-              .then(() => api.getAccount())
-              .then(account => {
-                // This is good auth, lets update our cache
-                const cache = {key: answers.key, label: account.mail, secret: answers.secret};
-                // Reset this apps metacache
-                lando.cache.set(app.metaCache, _.merge({}, app.meta, cache), {persist: true});
-                // Reset the acquia key cache
-                const keys = utils.sortKeys(app.acquiaKeys, app.hostKeys, [cache]);
-                lando.cache.set(app.acquiaKeyCache, keys, {persist: true});
-                // Blow away tooling cache so we can reset our pull commands
-                lando.cache.remove(`${app.name}.tooling.cache`);
-              })
-              // Throw some sort of error
-              // NOTE: this provides some error handling when we are completely non-interactive
-              .catch(err => {
-                throw (_.has(err, 'response.data')) ? new Error(err.response.data) : err;
-              });
+            .then(() => api.getAccount())
+            .then(account => {
+              // This is good auth, lets update our cache
+              const cache = {key: answers.key, label: account.mail, secret: answers.secret};
+              // Reset this apps metacache
+              lando.cache.set(app.metaCache, _.merge({}, app.meta, cache), {persist: true});
+              // Reset the acquia key cache
+              const keys = utils.sortKeys(app.acquiaKeys, app.hostKeys, [cache]);
+              lando.cache.set(app.acquiaKeyCache, keys, {persist: true});
+              // Blow away tooling cache so we can reset our pull commands
+              lando.cache.remove(`${app.name}.tooling.cache`);
+            })
+          // Throw some sort of error
+          // NOTE: this provides some error handling when we are completely non-interactive
+            .catch(err => {
+              throw (_.has(err, 'response.data')) ? new Error(err.response.data) : err;
+            });
         }
       });
     });
