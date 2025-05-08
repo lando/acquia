@@ -29,26 +29,51 @@ KEY="$1"
 SECRET="$2"
 KEYID="${3}1"
 
+# Debug: Check if credentials are provided
+if [ -z "$KEY" ] || [ -z "$SECRET" ]; then
+    echo "Error: Missing required credentials"
+    echo "KEY: ${KEY:-not set}"
+    echo "SECRET: ${SECRET:-not set}"
+    exit 1
+fi
+
+# Debug: Check credential lengths (without showing full values)
+echo "API Key length: ${#KEY}"
+echo "API Secret length: ${#SECRET}"
+
+# URL encode the credentials
+KEY_ENCODED=$(printf '%s' "$KEY" | jq -sRr @uri)
+SECRET_ENCODED=$(printf '%s' "$SECRET" | jq -sRr @uri)
+
 # Get our access token from CURLZ
-TOKEN=$(curl -X POST \
-   -H "Content-Type:application/json" \
-   -d \
-'{
-  "client_id": "'"$KEY"'",
-  "client_secret": "'"$SECRET"'",
-  "grant_type": "client_credentials",
-  "scope": ""
-}' \
- 'https://accounts.acquia.com/api/auth/oauth/token' | jq -r '.access_token')
+echo "Requesting OAuth token..."
+RESPONSE=$(curl -s -X POST \
+   -H "Content-Type: application/x-www-form-urlencoded" \
+   -d "client_id=$KEY_ENCODED" \
+   -d "client_secret=$SECRET_ENCODED" \
+   -d "grant_type=client_credentials" \
+   -d "scope=" \
+   'https://accounts.acquia.com/api/auth/oauth/token')
+
+# Debug the response
+echo "OAuth Response: $RESPONSE"
+
+# Extract token with error handling
+TOKEN=$(echo "$RESPONSE" | jq -r '.access_token')
+if [ "$TOKEN" = "null" ] || [ -z "$TOKEN" ]; then
+    echo "Error: Failed to get access token"
+    echo "Full response: $RESPONSE"
+    exit 1
+fi
 
 # Discover the key we need to remove
 echo "Trying to get the UUID for $KEYID with token $TOKEN"...
-KEY_UUID=$(curl -X GET \
+KEY_UUID=$(curl -s -X GET \
    -H "Authorization: Bearer $TOKEN" \
  'https://cloud.acquia.com/api/account/ssh-keys' | jq '._embedded.items[]' | KEYID="$KEYID" jq 'select(.label == env.KEYID)' | jq -r '.uuid')
 
 echo "Trying to remove key $KEY_UUID"...
-ERROR=$(curl -X DELETE \
+ERROR=$(curl -s -X DELETE \
  -H "Authorization: Bearer $TOKEN" \
  "https://cloud.acquia.com/api/account/ssh-keys/$KEY_UUID" | jq '.error')
 
@@ -56,6 +81,6 @@ ERROR=$(curl -X DELETE \
 if [[ "$ERROR" == "null" ]]; then
   exit 0
 else
-  curl -X DELETE -H "Authorization: Bearer $TOKEN" "https://cloud.acquia.com/api/account/ssh-keys/$KEY_UUID"
+  curl -s -X DELETE -H "Authorization: Bearer $TOKEN" "https://cloud.acquia.com/api/account/ssh-keys/$KEY_UUID"
   exit 1
 fi
