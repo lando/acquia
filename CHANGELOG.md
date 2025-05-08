@@ -2,6 +2,8 @@
 
 ## v1.6.2 - [May 8, 2025](https://github.com/lando/acquia/releases/tag/v1.6.2)
 
+## v1.6.2 - [May 8, 2025](https://github.com/lando/acquia/releases/tag/v1.6.2)
+
 * Fixed Acquia API authentication issue that caused various commands to silently fail.
 * Updated to [@lando/php@1.7.1](https://github.com/lando/php/releases/tag/v1.7.1).
 * Updated to [@lando/mysql@1.5.0](https://github.com/lando/mysql/releases/tag/v1.5.0).
