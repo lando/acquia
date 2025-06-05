@@ -238,7 +238,7 @@ const getTooling = options => _.merge({}, toolingDefaults, getDbTooling(options.
 
 
 /*
- * Build Acquia 7
+ * Build Acquia base recipe
  */
 /**
  * Lando builder definition for the Acquia base recipe.
