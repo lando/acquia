@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+## v1.6.3 - [June 6, 2025](https://github.com/lando/acquia/releases/tag/v1.6.3)
+
 * Removed `qs` dependency to fix bundler issues.
 
 ## v1.6.2 - [May 8, 2025](https://github.com/lando/acquia/releases/tag/v1.6.2)
