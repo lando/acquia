@@ -3,7 +3,7 @@
   "description": "A Lando plugin that provides a tight integration with Acquia.",
   "version": "1.6.3",
   "author": "Mike Pirog @pirog",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "repository": "lando/acquia",
   "bugs": "https://github.com/lando/acquia/issues/new/choose",
   "homepage": "https://github.com/lando/acquia",
