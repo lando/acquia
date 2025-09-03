@@ -20,7 +20,7 @@ lando plugin-add @lando/acquia
 
 To install a specific version, you can specify it like so:
 ```bash
-lando plugin-add @lando/acquia@0.5.2
+lando plugin-add @lando/acquia@1.6.3
 ```
 
 To update Lando and its plugins, including this one, you can use the `lando update` command. More information can be found in the [update documentation](https://docs.lando.dev/cli/update.html).

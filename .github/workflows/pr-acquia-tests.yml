@@ -27,6 +27,7 @@ jobs:
           - acquia-default
           - acquia-xdebug
         lando-version:
+          - 3-stable
           - 3-edge
         os:
           - ubuntu-24.04

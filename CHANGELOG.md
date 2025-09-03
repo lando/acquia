@@ -1,5 +1,10 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+* Updated to [@lando/memcached@1.4.2](https://github.com/lando/memcached/releases/tag/v1.4.2).
+* Updated to [@lando/mysql@1.6.0](https://github.com/lando/mysql/releases/tag/v1.6.0).
+* Updated to [@lando/php@1.8.0](https://github.com/lando/php/releases/tag/v1.8.0).
+* Updated to [@lando/postgres@1.5.0](https://github.com/lando/postgres/releases/tag/v1.5.0).
+
 ## v1.6.3 - [June 6, 2025](https://github.com/lando/acquia/releases/tag/v1.6.3)
 
 * Removed `qs` dependency to fix bundler issues.
