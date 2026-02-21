@@ -45,3 +45,4 @@ config.*.timestamp-*-*.*
 # YARN
 yarn.lock
 *.sync-conflict-*
+AGENTS.md
