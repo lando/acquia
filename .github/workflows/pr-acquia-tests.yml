@@ -19,6 +19,7 @@ jobs:
           - acquia-custom
           - acquia-downstreamer-1
           - acquia-downstreamer-2
+          - acquia-drush-uri
           - drupal
           - acquia-8.2
           - acquia-8.3

@@ -278,6 +278,8 @@ module.exports = {
     xdebug: false,
     /** @type {object} Proxy configuration. */
     proxy: {},
+    /** @type {string|null} Custom Drush URI for DRUSH_OPTIONS_URI environment variable. */
+    drush_uri: null,
   },
   /**
    * The builder function that returns the LandoAcquiaBase class.
@@ -334,6 +336,22 @@ module.exports = {
         else if (_.startsWith(options.via, 'apache')) options.proxyService = 'appserver';
       }
       options.proxy = _.set(options.proxy, options.proxyService, [`${options.app}.${options._app._config.domain}`]);
+
+      // Set DRUSH_OPTIONS_URI based on drush_uri config or proxy settings
+      let drushUri = options.drush_uri;
+      if (!drushUri) {
+        const proxyUrl = options.proxy[options.proxyService]?.[0];
+        if (proxyUrl) {
+          const proxyServiceSsl = options.services[options.proxyService]?.ssl;
+          const ssl = proxyServiceSsl !== undefined ? proxyServiceSsl : options.services.appserver?.ssl;
+          drushUri = ssl ? `https://${proxyUrl}` : `http://${proxyUrl}`;
+        }
+      }
+      if (drushUri) {
+        options.services.appserver.overrides = options.services.appserver.overrides || {};
+        options.services.appserver.overrides.environment = options.services.appserver.overrides.environment || {};
+        options.services.appserver.overrides.environment.DRUSH_OPTIONS_URI = drushUri;
+      }
 
       // Send downstream
       super(id, _.merge({}, config, options));

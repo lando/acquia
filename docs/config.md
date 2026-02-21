@@ -20,6 +20,7 @@ config:
   cache: true
   composer_version: '2'
   database: 'mysql:8.0'
+  drush_uri: SEE BELOW
   inbox: true
   php: '8.3'
   xdebug: false
@@ -114,3 +115,13 @@ config:
 ```
 
 However, for more information, we recommend you consult the [php service documentation](https://docs.lando.dev/plugins/php/index.html).
+
+## Configuring Drush URI
+
+The `drush_uri` option allows you to set a custom URL for Drush to use when connecting to your Drupal site. This overrides the `DRUSH_OPTIONS_URI` environment variable in the `appserver` service which, by default, is automatically set to the proxy URL for the webserver you are using. You will need to run `lando rebuild` to apply changes to this setting.
+
+```yaml
+recipe: acquia
+config:
+  drush_uri: 'https://custom-uri.lndo.site'
+```
