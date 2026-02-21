@@ -19,6 +19,7 @@ rm -rf drupal9 && mkdir -p drupal9 && cd drupal9
 lando init --source acquia --acquia-key "$ACQUIA_API_KEY" --acquia-secret "$ACQUIA_API_SECRET" --acquia-app "53fd24cf-803f-4024-afac-c457cfc5c273" --acquia-key-name "$RUN_ID"
 cp ../../.lando.upstream.yml .lando.upstream.yml
 git stash
+sed -i "s/acli_version: latest/acli_version: '2.49.0'/" .lando.yml
 
 # Should start up our drupal9 site successfully
 cd drupal9
@@ -59,7 +60,7 @@ lando composer --version | grep Composer | grep 2.
 cd drupal9
 lando ssh -c "/usr/local/bin/composer --version" | grep Composer | grep "2.0.11"
 
-# Should use php version 7.4 by default
+# Should use php version 8.1 by default
 cd drupal9
 lando php -v | grep "PHP 8.1"
 

@@ -2,6 +2,7 @@ name: acquia-81
 recipe: acquia
 config:
   php: 8.1
+  acli_version: '2.49.0'
 
 # Instructs Lando to use the local development version of the @lando/acquia plugin
 # located at the relative path '../..' from this example's directory.
