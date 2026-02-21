@@ -259,13 +259,13 @@ module.exports = {
     /** @type {object} User-overrideable configuration file paths for services. */
     config: {},
     /** @type {string} Default database type and version (e.g., 'mysql:5.7', 'postgres:12'). */
-    database: 'mysql',
+    database: 'mysql:8.0',
     /** @type {object} Mapping of default configuration file names for different components. */
     defaultFiles: {
       php: 'php.ini',
     },
     /** @type {string} Default PHP version. */
-    php: '7.2',
+    php: '8.3',
     /** @type {object} Default Drush tooling configuration. */
     tooling: {drush: {
       service: 'appserver',

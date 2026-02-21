@@ -1,4 +1,4 @@
-# Acquia 8.1 Example
+# Acquia 8.4 Example
 
 This example exists primarily to test the following documentation:
 
@@ -26,11 +26,11 @@ lando acli -V
 lando ssh -s appserver -c "apachectl -V | grep Apache/2.4"
 lando ssh -s appserver -c "curl -IL localhost" | grep Server | grep 2.4
 
-# Should use php 8.1, the default
-lando php -v | grep "PHP 8.1"
+# Should use php 8.4, the default
+lando php -v | grep "PHP 8.4"
 
-# Should be running mysql 5.7 by default
-lando mysql -V | grep 5.7
+# Should be running mysql 8.0 by default
+lando mysql -V | grep 8.0
 
 # Should be able to connect to the database with the default creds
 lando mysql acquia -e quit

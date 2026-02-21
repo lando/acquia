@@ -54,7 +54,7 @@ config:
 By default, Lando will spin up an approximation of the Acquia stack:
 
 * Apache webserver `2.4`
-* MySQL database server `5.7`
+* MySQL database server `8.0`
 * Memcache `1.6`
 * PHP `8.3`
 
