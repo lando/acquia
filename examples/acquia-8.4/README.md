@@ -1,4 +1,4 @@
-# Acquia MySQL 8.0 Example
+# Acquia 8.4 Example
 
 This example exists primarily to test the following documentation:
 
@@ -19,11 +19,30 @@ lando start
 Run the following commands to validate things are rolling as they should.
 
 ```bash
-# Should be running mysql 8.0 by default
-lando mysql -V | grep 8.0
+# Should have acli
+lando acli -V
+
+# Should be running apache 2.4 by default
+lando ssh -s appserver -c "apachectl -V | grep Apache/2.4"
+lando ssh -s appserver -c "curl -IL localhost" | grep Server | grep 2.4
+
+# Should use php 8.4, the default
+lando php -v | grep "PHP 8.4"
+
+# Should be running mysql 5.7 by default
+lando mysql -V | grep 5.7
 
 # Should be able to connect to the database with the default creds
 lando mysql acquia -e quit
+
+# Should be running memcached 1.6
+lando ssh -s cache -c "memcached --version | grep 1.6"
+
+# Check index is loading
+lando ssh -s appserver -c "curl -L localhost" | grep "Hello Lando!"
+
+# Check if AH_SITE_ENVIRONMENT is set
+lando ssh -s appserver -c "curl -L localhost/site-environment.php" | grep "LANDO"
 ```
 
 ## Destroy tests

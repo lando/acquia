@@ -1,9 +1,7 @@
-name: acquia-mysql-8
+name: acquia-85
 recipe: acquia
-services:
-  database:
-    # Explicitly set the database service to use MySQL 8.0 via the standard Lando mysql service type.
-    type: "mysql:8.0"
+config:
+  php: 8.5
 
 # Instructs Lando to use the local development version of the @lando/acquia plugin
 # located at the relative path '../..' from this example's directory.
