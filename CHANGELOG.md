@@ -1,5 +1,6 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+* Added `drush_uri` config option to automatically set `DRUSH_OPTIONS_URI` for Drush
 * Updated `@lando/php` to `^1.11.1`
 * Fixed CI failures caused by Acquia CLI dropping PHP 8.1 support
 * Bumped PHP from 8.1 to 8.2 in acquia-custom, acquia-downstreamer-1, and acquia-downstreamer-2 examples

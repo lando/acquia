@@ -1,0 +1,6 @@
+name: acquia-drush-uri
+recipe: acquia
+config: {}
+
+plugins:
+  "@lando/acquia": ../..
