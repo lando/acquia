@@ -29,8 +29,8 @@ lando ssh -s appserver -c "curl -IL localhost" | grep Server | grep 2.4
 # Should use php 8.3, the default
 lando php -v | grep "PHP 8.3"
 
-# Should be running mysql 8.0 by default
-lando mysql -V | grep 8.0
+# Should be running mysql 5.7 by default
+lando mysql -V | grep 5.7
 
 # Should be able to connect to the database with the default creds
 lando mysql acquia -e quit

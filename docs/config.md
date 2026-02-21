@@ -19,12 +19,13 @@ config:
     run_scripts: true
   cache: true
   composer_version: '2'
+  database: 'mysql:8.0'
   inbox: true
   php: '8.3'
   xdebug: false
 ```
 
-If you do not already have a [Landofile](https://docs.lando.dev/landofile/) for your Acquia site, we highly recommend you use [`lando init`](https://docs.lando.dev/cli/init.html) to get one as that will automatically populate the `ah_application_uuid`, `ah_site_group` and `php` version for you. Manually creating a Landofile with these items set correctly can be difficult, and we recommend using `lando init` for accuracy.
+If you do not already have a [Landofile](https://docs.lando.dev/landofile/) for your Acquia site, we highly recommend you use [`lando init`](https://docs.lando.dev/cli/init.html) to get one as that will automatically populate the `ah_application_uuid`, `ah_site_group`, `php` version, and `database` for you. Manually creating a Landofile with these items set correctly can be difficult, and we recommend using `lando init` for accuracy.
 
 Note that if the above config options are not enough, all Lando recipes can be further [extended and overridden](https://docs.lando.dev/landofile/recipes.html#extending-and-overriding-recipes).
 

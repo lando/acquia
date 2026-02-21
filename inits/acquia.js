@@ -267,6 +267,7 @@ module.exports = {
             ah_application_uuid: options['acquia-app'],
             ah_site_group: env.group,
             php: env.php,
+            database: 'mysql:8.0',
           },
         };
 
