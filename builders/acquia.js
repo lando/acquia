@@ -74,7 +74,6 @@ module.exports = {
       // Retrieve Acquia-specific metadata and configurations from Lando app options
       const account = _.get(options, '_app.meta.label', null);
       const acliVersion = _.get(options, '_app.config.config.acli_version', 'latest');
-      console.log('DEBUG acli_version config:', JSON.stringify(_.get(options, '_app.config.config')));
       const appUuid = _.get(options, '_app.config.config.ah_application_uuid', null);
       const group = _.get(options, '_app.config.config.ah_site_group', null);
       const key = _.get(options, '_app.meta.key', null);
