@@ -1,7 +1,7 @@
 name: acquia-downstreamer-2
 recipe: acquia
 config:
-  php: 8.1
+  php: 8.2
 services:
   database:
     # Explicitly use the Lando Acquia plugin's 'acquia-mysql' service type for MySQL 8.0.

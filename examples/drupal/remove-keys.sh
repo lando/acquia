@@ -72,6 +72,11 @@ KEY_UUID=$(curl -s -X GET \
    -H "Authorization: Bearer $TOKEN" \
  'https://cloud.acquia.com/api/account/ssh-keys' | jq '._embedded.items[]' | KEYID="$KEYID" jq 'select(.label == env.KEYID)' | jq -r '.uuid')
 
+if [ -z "$KEY_UUID" ] || [ "$KEY_UUID" = "null" ]; then
+    echo "Warning: Could not find SSH key with label $KEYID, nothing to remove"
+    exit 0
+fi
+
 echo "Trying to remove key $KEY_UUID"...
 ERROR=$(curl -s -X DELETE \
  -H "Authorization: Bearer $TOKEN" \

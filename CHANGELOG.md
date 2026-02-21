@@ -1,5 +1,10 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+* Updated `@lando/php` to `^1.11.1`
+* Fixed CI failures caused by Acquia CLI dropping PHP 8.1 support
+* Bumped PHP from 8.1 to 8.2 in acquia-custom, acquia-downstreamer-1, and acquia-downstreamer-2 examples
+* Pinned `acli_version` to 2.49.0 for PHP 8.1 examples (last acli supporting PHP 8.1)
+
 ## v1.8.0 - [February 18, 2026](https://github.com/lando/acquia/releases/tag/v1.8.0)
 
 * Updated to [@lando/php@1.10.0](https://github.com/lando/php/releases/tag/v1.10.0).
