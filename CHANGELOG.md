@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+## v1.8.0 - [February 22, 2026](https://github.com/lando/acquia/releases/tag/v1.8.0)
+
 * Added automatic `DRUSH_OPTIONS_URI` detection from proxy settings, with optional `drush_uri` config override.
 * Added PHP 8.4 and 8.5 examples and CI tests.
 * Updated to [@lando/php@1.11.1](https://github.com/lando/php/releases/tag/v1.11.1) for PHP 8.5 support, database client auto-detection, and more.
