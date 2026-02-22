@@ -1,15 +1,13 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
-* Added `drush_uri` config option to automatically set `DRUSH_OPTIONS_URI` for Drush
-* Updated `@lando/php` to `^1.11.1`
-* Fixed CI failures caused by Acquia CLI dropping PHP 8.1 support
-* Bumped PHP from 8.1 to 8.2 in acquia-custom, acquia-downstreamer-1, and acquia-downstreamer-2 examples
-* Pinned `acli_version` to 2.49.0 for PHP 8.1 examples (last acli supporting PHP 8.1)
-* `lando init` now generates landofiles with `database: mysql:8.0` to match Acquia's current platform default
-* Added PHP 8.4 and 8.5 examples and CI tests
-* Removed EOL PHP 7.4, 8.0, and 8.1 examples
-* Removed redundant `acquia-mysql-8` example
-* Updated docs to reflect recommended Acquia stack configuration
+* Added automatic `DRUSH_OPTIONS_URI` detection from proxy settings, with optional `drush_uri` config override.
+* Added PHP 8.4 and 8.5 examples and CI tests.
+* Updated to [@lando/php@1.11.1](https://github.com/lando/php/releases/tag/v1.11.1) for PHP 8.5 support, database client auto-detection, and more.
+* Updated `lando init` to generate landofiles with `database: mysql:8.0` to match Acquia's current platform default.
+* Updated docs to reflect recommended Acquia stack configuration.
+* Fixed CI failures caused by Acquia CLI dropping PHP 8.1 support.
+* Removed EOL PHP 7.4, 8.0, and 8.1 examples.
+* Removed redundant `acquia-mysql-8` example.
 
 ## v1.8.0 - [February 18, 2026](https://github.com/lando/acquia/releases/tag/v1.8.0)
 
