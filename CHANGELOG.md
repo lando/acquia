@@ -10,14 +10,8 @@
 * Fixed CI failures caused by Acquia CLI dropping PHP 8.1 support.
 * Removed EOL PHP 7.4, 8.0, and 8.1 examples.
 * Removed redundant `acquia-mysql-8` example.
-
-## v1.8.0 - [February 18, 2026](https://github.com/lando/acquia/releases/tag/v1.8.0)
-
-* Updated to [@lando/php@1.10.0](https://github.com/lando/php/releases/tag/v1.10.0).
 * Updated to [@lando/postgres@1.6.0](https://github.com/lando/postgres/releases/tag/v1.6.0).
 * Updated to [@lando/argv@1.2.0](https://github.com/lando/argv/releases/tag/v1.2.0).
-* Updated CI actions to latest versions.
-* Bumped various dev dependencies.
 
 ## v1.7.0 - [September 3, 2025](https://github.com/lando/acquia/releases/tag/v1.7.0)
 
