@@ -33,7 +33,7 @@ module.exports = {
     /** @type {object} Placeholder for default files, typically populated by the parent or specific logic. */
     defaultFiles: {},
     /** @type {string} Default database type and version (e.g., 'mysql:8.0', 'mysql:5.7'). */
-    database: 'mysql:8.0',
+    database: 'mysql:5.7',
     /** @type {string} Default Drush version or constraint (e.g., '8.4.10', '10.x'). */
     drush: '8.4.10',
     /** @type {boolean} Whether to enable MailHog service. */
