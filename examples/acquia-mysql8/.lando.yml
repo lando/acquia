@@ -1,0 +1,10 @@
+name: acquia-mysql8
+recipe: acquia
+config:
+  database: mysql:8.0
+
+# Instructs Lando to use the local development version of the @lando/acquia plugin
+# located at the relative path '../..' from this example's directory.
+# This is crucial for testing local plugin changes.
+plugins:
+  "@lando/acquia": ../..
