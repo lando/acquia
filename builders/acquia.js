@@ -66,8 +66,6 @@ module.exports = {
      */
     constructor(id, options = {}) {
       options = _.merge({}, config, options);
-      // Set default database if not specified, and standard Acquia webroot and env file
-      if (!options.database) options.database = 'mysql:8.0';
       options.env_file = ['.env'];
       options.webroot = 'docroot';
 
