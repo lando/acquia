@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+## v1.8.1 - [February 24, 2026](https://github.com/lando/acquia/releases/tag/v1.8.1)
+
 * Fixed issue causing `database` config key to be disregarded.
 
 ## v1.8.0 - [February 22, 2026](https://github.com/lando/acquia/releases/tag/v1.8.0)
