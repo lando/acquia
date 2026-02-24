@@ -5,6 +5,7 @@
 * Updated to [@lando/php@1.11.1](https://github.com/lando/php/releases/tag/v1.11.1) for PHP 8.5 support, database client auto-detection, and more.
 * Updated `lando init` to generate landofiles with `database: mysql:8.0` to match Acquia's current platform default.
 * Updated docs to reflect recommended Acquia stack configuration.
+* Fixed `database` config key being disregarded, allowing users to set database type and version.
 * Fixed CI failures caused by Acquia CLI dropping PHP 8.1 support.
 * Removed EOL PHP 7.4, 8.0, and 8.1 examples.
 * Removed redundant `acquia-mysql-8` example.
