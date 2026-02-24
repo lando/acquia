@@ -1,20 +1,40 @@
 # Acquia MySQL 5.7 Example
 
-This example demonstrates how to use the `database` config key to pin MySQL 5.7 as the database server, overriding the default MySQL 8.0.
+This example exists primarily to test the following documentation:
 
-## Usage
+* [Acquia Recipe - Choosing a database version](https://docs.lando.dev/acquia/config.html)
 
-```yaml
-recipe: acquia
-config:
-  database: mysql:5.7
-```
+## Start up tests
 
-Start the app and verify the database version:
+Run the following commands to get up and running with this example.
 
 ```bash
+# Should start up successfully
+lando poweroff
 lando start
-lando mysql -V
 ```
 
-You should see MySQL 5.7.x reported.
+## Verification commands
+
+Run the following commands to validate things are rolling as they should.
+
+```bash
+# Should be running mysql 5.7
+lando mysql -V | grep 5.7
+
+# Should be able to connect to the database with the default creds
+lando mysql acquia -e quit
+
+# Should have the correct database service version in lando info
+lando info -s database --path type | grep mysql | grep 5.7
+```
+
+## Destroy tests
+
+Run the following commands to trash this app like nothing ever happened.
+
+```bash
+# Should be destroyed with success
+lando destroy -y
+lando poweroff
+```
