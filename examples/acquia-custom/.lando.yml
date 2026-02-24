@@ -3,6 +3,7 @@ recipe: acquia
 config:
   php: '8.2'
   composer_version: '2.0.7'
+  database: mysql:8.0
   xdebug: true
   inbox: false # Disable MailHog (inbox service) for this example
 
