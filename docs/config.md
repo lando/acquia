@@ -51,6 +51,18 @@ config:
     run_scripts: false
 ```
 
+## Choosing a database version
+
+By default, the `acquia` recipe uses `mysql:8.0` as its database server. You can change this to any version supported by the Lando [mysql](https://docs.lando.dev/plugins/mysql/) service using the top-level `database` config key:
+
+```yaml
+recipe: acquia
+config:
+  database: mysql:5.7
+```
+
+Note that Acquia Cloud environments typically use either MySQL 5.7 or MySQL 8.0. We recommend matching your local database version to your Acquia Cloud environment for consistency.
+
 ## Customizing the stack
 
 By default, Lando will spin up an approximation of the Acquia stack:

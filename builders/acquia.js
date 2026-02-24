@@ -32,6 +32,8 @@ module.exports = {
     confSrc: path.resolve(__dirname, '..', 'config'),
     /** @type {object} Placeholder for default files, typically populated by the parent or specific logic. */
     defaultFiles: {},
+    /** @type {string} Default database type and version (e.g., 'mysql:8.0', 'mysql:5.7'). */
+    database: 'mysql:8.0',
     /** @type {string} Default Drush version or constraint (e.g., '8.4.10', '10.x'). */
     drush: '8.4.10',
     /** @type {boolean} Whether to enable MailHog service. */
@@ -65,7 +67,7 @@ module.exports = {
     constructor(id, options = {}) {
       options = _.merge({}, config, options);
       // Set default database if not specified, and standard Acquia webroot and env file
-      options.database = 'mysql:5.7';
+      if (!options.database) options.database = 'mysql:8.0';
       options.env_file = ['.env'];
       options.webroot = 'docroot';
 
