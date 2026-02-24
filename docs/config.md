@@ -53,7 +53,7 @@ config:
 
 ## Choosing a database version
 
-By default, the `acquia` recipe uses `mysql:5.7` as its database server. You can change this to any version supported by the Lando [mysql](https://docs.lando.dev/plugins/mysql/) service using the top-level `database` config key:
+By default, the `acquia` recipe uses `mysql:5.7` as its database server. You can change this to any version supported by the Lando [mysql](https://docs.lando.dev/plugins/mysql/index.html) service using the top-level `database` config key:
 
 ```yaml
 recipe: acquia
