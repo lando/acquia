@@ -56,6 +56,8 @@ lando ssh -s appserver -c "cd /tmp && /usr/local/bin/drush --version" | grep "Dr
 cd drupal9
 lando composer --version | grep Composer | grep 2.
 
+# Should not include ANSI escape codes when output is redirected
+lando composer --version > /tmp/composer-output.txt 2>&1 && ! grep -P '\x1b\[' /tmp/composer-output.txt
 # Should be able to specify the composer version
 cd drupal9
 lando ssh -c "/usr/local/bin/composer --version" | grep Composer | grep "2.0.11"
