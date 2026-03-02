@@ -172,7 +172,6 @@ const getServices = options => ({
   },
   database: {
     config: getServiceConfig(options, ['database']),
-    authentication: 'mysql_native_password',
     type: `acquia-${options.database}`,
     portforward: true,
     creds: {
