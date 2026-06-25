@@ -15,9 +15,9 @@ jobs:
     steps:
       # Install deps and cache
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Cache version builds
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           key: lando-mvb-docs
           path: docs/.vitepress/cache/@lando/mvb
@@ -33,6 +33,11 @@ jobs:
       # Run tests
       - name: Run linter
         run: npm run lint
+      - name: Disable Git commit graphs
+        run: |
+          git config --global core.commitGraph false
+          git config --global fetch.writeCommitGraph false
+          rm -rf .git/objects/info/commit-graphs
       - name: Test mvb
         run: npm run docs:mvb
       - name: Test build

@@ -20,7 +20,6 @@ jobs:
           - acquia-downstreamer-1
           - acquia-downstreamer-2
           - acquia-drush-uri
-          - drupal
           - acquia-8.2
           - acquia-8.3
           - acquia-8.4
@@ -38,7 +37,7 @@ jobs:
     steps:
       # Install deps and cache
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Install node ${{ matrix.node-version }}
         uses: actions/setup-node@v6
         with:
