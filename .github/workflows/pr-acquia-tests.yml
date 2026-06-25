@@ -60,7 +60,11 @@ jobs:
             setup.skipCommonPlugins=true
             setup.plugins.@lando/acquia=/home/runner/work/acquia/acquia
           telemetry: false
+      - name: Skip Acquia Drupal test without credentials
+        if: ${{ matrix.leia-tests == 'drupal' && (env.ACQUIA_API_KEY == '' || env.ACQUIA_API_SECRET == '') }}
+        run: echo "Skipping the Acquia Drupal example because Acquia API credentials are not available."
       - name: Run Leia Tests
+        if: ${{ matrix.leia-tests != 'drupal' || (env.ACQUIA_API_KEY != '' && env.ACQUIA_API_SECRET != '') }}
         uses: lando/run-leia-action@v2
         with:
           leia-test: "./examples/${{ matrix.leia-tests }}/README.md"
