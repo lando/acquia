@@ -20,7 +20,6 @@ jobs:
           - acquia-downstreamer-1
           - acquia-downstreamer-2
           - acquia-drush-uri
-          - drupal
           - acquia-8.2
           - acquia-8.3
           - acquia-8.4
@@ -39,27 +38,20 @@ jobs:
       # Install deps and cache
       - name: Checkout code
         uses: actions/checkout@v7
-      - name: Skip Acquia Drupal test without credentials
-        if: ${{ matrix.leia-tests == 'drupal' && (env.ACQUIA_API_KEY == '' || env.ACQUIA_API_SECRET == '') }}
-        run: echo "Skipping the Acquia Drupal example because Acquia API credentials are not available."
       - name: Install node ${{ matrix.node-version }}
-        if: ${{ matrix.leia-tests != 'drupal' || (env.ACQUIA_API_KEY != '' && env.ACQUIA_API_SECRET != '') }}
         uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
           cache: npm
       - name: Install NPM dependencies
-        if: ${{ matrix.leia-tests != 'drupal' || (env.ACQUIA_API_KEY != '' && env.ACQUIA_API_SECRET != '') }}
         run: npm clean-install --production --production --production --production --production --production --prefer-offline --frozen-lockfile
       - name: Bundle Deps
-        if: ${{ matrix.leia-tests != 'drupal' || (env.ACQUIA_API_KEY != '' && env.ACQUIA_API_SECRET != '') }}
         uses: lando/prepare-release-action@v3
         with:
           lando-plugin: true
           version: dev
           sync: false
       - name: Setup lando ${{ matrix.lando-version }}
-        if: ${{ matrix.leia-tests != 'drupal' || (env.ACQUIA_API_KEY != '' && env.ACQUIA_API_SECRET != '') }}
         uses: lando/setup-lando@v3
         with:
           lando-version: ${{ matrix.lando-version }}
@@ -68,7 +60,6 @@ jobs:
             setup.plugins.@lando/acquia=/home/runner/work/acquia/acquia
           telemetry: false
       - name: Run Leia Tests
-        if: ${{ matrix.leia-tests != 'drupal' || (env.ACQUIA_API_KEY != '' && env.ACQUIA_API_SECRET != '') }}
         uses: lando/run-leia-action@v2
         with:
           leia-test: "./examples/${{ matrix.leia-tests }}/README.md"
