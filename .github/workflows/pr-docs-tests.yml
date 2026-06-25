@@ -33,6 +33,11 @@ jobs:
       # Run tests
       - name: Run linter
         run: npm run lint
+      - name: Disable Git commit graphs
+        run: |
+          git config --global core.commitGraph false
+          git config --global fetch.writeCommitGraph false
+          rm -rf .git/objects/info/commit-graphs
       - name: Test mvb
         run: npm run docs:mvb
       - name: Test build
