@@ -3,6 +3,8 @@
 * Fixed MySQL 8.4 startup failure by removing hardcoded `mysql_native_password` authentication [lando/mysql#69](https://github.com/lando/mysql/issues/69)
 * Removed `--ansi` flag from composer tooling command to prevent escape codes in redirected output
 * Updated to [@lando/php@1.12.0](https://github.com/lando/php/releases/tag/v1.12.0) to enable mod_headers/mod_expires by default and fix xdebug log ownership
+* Fixed MySQL 8.2+ startup failure by replacing removed `expire_logs_days` with `binlog_expire_logs_seconds`
+* Fixed `mysql:8` startup failure by using the MySQL 8 config instead of the 5.7 config
 
 ## v1.8.1 - [February 24, 2026](https://github.com/lando/acquia/releases/tag/v1.8.1)
 

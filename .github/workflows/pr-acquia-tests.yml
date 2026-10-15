@@ -17,6 +17,7 @@ jobs:
       matrix:
         leia-tests:
           - acquia-custom
+          - acquia-mysql84
           - acquia-downstreamer-1
           - acquia-downstreamer-2
           - acquia-drush-uri
@@ -66,3 +67,4 @@ jobs:
           cleanup-header: "Destroy tests"
           shell: bash
           stdin: true
+          version: 1.0.0-beta.4
