@@ -17,6 +17,7 @@ jobs:
       matrix:
         leia-tests:
           - acquia-custom
+          - acquia-mysql84
           - acquia-downstreamer-1
           - acquia-downstreamer-2
           - acquia-drush-uri
